@@ -1,0 +1,13 @@
+#banner {
+    height: 150px; background-color: White; padding-top: 50px; padding-left: 25px;
+}
+
+#profile_picture {
+    height: 50px; width: 50px; background-color: Black;
+}
+
+#username {
+    color: Black;
+    padding-top: 6px;
+    font-size: 20px;
+}

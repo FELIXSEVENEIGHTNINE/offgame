@@ -1,0 +1,112 @@
+header {
+    /* margin: 40px 40px 40px 40px; */
+    color: White;
+}
+
+#spacer {
+    height: 50px;
+}
+
+.main-collapse {
+    font-size: 40px;
+    cursor: pointer;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    transition: .15s;
+
+    color: #B2FFA9;
+}
+
+    .main-collapse:hover {
+        color: White;
+    }
+
+.collapse-opposite {
+    text-align:right;
+    padding-right: 50px;
+}
+
+.collapse-main {
+    padding-left: 50px;
+}
+
+.main-collapse-info {
+    background-color: #B2FFA9;
+    color: Black;
+    margin-left: 0px;
+    margin-right: -12px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+    .main-collapse-info-text {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        
+    }
+
+.opposite {
+    background-color: #394053;
+    color: White;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.main-collapse-opposite {
+    background-color: #B2FFA9;
+    color: Black;
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+
+section {
+    padding-top: 50px;
+}
+
+.main-header {
+    padding-left: 50px;
+}
+
+.main-text {
+    padding-left: 50px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.main-header-opposite {
+    text-align: right;
+    padding-right: 50px;
+}
+
+.main-text-opposite {
+    text-align: right;
+    padding-right: 50px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+#img-sell{
+    width:20%;
+}
+
+#img-sell-opp {
+    width: 20%;
+    float: right;
+}
+
+footer {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#game {
+    border: 1px solid;
+}
+
+#game-card {
+    background-color: #FFFFFF00; 
+    color: White; 
+    border: 0px solid;
+}
