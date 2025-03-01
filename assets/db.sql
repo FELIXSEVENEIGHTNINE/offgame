@@ -1,24 +1,71 @@
 -------------------------------------------
+-- USERS
+-------------------------------------------
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    user_id INT(12) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    password VARCHAR(500) NOT NULL,
+    email VARCHAR(150) DEFAULT NULL,
+    banner_name VARCHAR(500) DEFAULT NULL,
+    profile_picture_name VARCHAR(500) DEFAULT NULL
+);
+
+INSERT INTO users VALUES (1, "jeb12", "jebjebjeb", "jeb12@gmail.com", "", "");
+
+-------------------------------------------
 -- ADMINS
 -------------------------------------------
-
-DROP TABLE admin;
+DROP TABLE IF EXISTS admin;
 
 CREATE TABLE admin (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    admin_num VARCHAR(12) NOT NULL
+    admin_id INT(6) AUTO_INCREMENT PRIMARY KEY,
+    admin_username VARCHAR(255) NOT NULL,
+    admin_num VARCHAR(12) NOT NULL,
     admin_password VARCHAR(500) NOT NULL,
+    user_id INT(12)
+);
+
+ALTER TABLE admin ADD CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(user_id);
+
+INSERT INTO admin VALUES (1, "admin", "123456789123", "test", 1);
+
+-------------------------------------------
+-- BLOG 
+-------------------------------------------
+DROP TABLE blog;
+
+CREATE TABLE blog (
+    blog_id INT(8) AUTO_INCREMENT PRIMARY KEY,
+    blog_date VARCHAR(500) DEFAULT NULL,
+    blog_title VARCHAR(500) DEFAULT NULL,
+    blog_text VARCHAR(500) DEFAULT NULL
+);
+
+INSERT INTO blog VALUES (1, "January 1, 2022", "Welcome", "hi");
+INSERT INTO blog VALUES (2, "January 2, 2023", "Welcome 2", "hi2");
+INSERT INTO blog VALUES (3, "January 3, 2023", "Welcome 3", "hi3");
+
+-------------------------------------------
+-- CREDIT
+-------------------------------------------
+DROP TABLE credit;
+
+CREATE TABLE credit (
+    credit_id INT(12) AUTO_INCREMENT PRIMARY KEY,
+    amount INT(24) DEFAULT NULL,
+    card_number VARCHAR(255) DEFAULT NULL,
 
     user_id INT(12) DEFAULT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-INSERT INTO admin VALUES (1, "admin", "test", "admin@test.com", "12EA5G789I23");
+INSERT INTO developers VALUES (1, "1200", "", 1);
 
 -------------------------------------------
 -- DEVELOPERS
 -------------------------------------------
-
 DROP TABLE developers;
 
 CREATE TABLE developers (
@@ -29,8 +76,24 @@ CREATE TABLE developers (
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-INSERT INTO developers VALUES (1, "LocalThunk");
-INSERT INTO developers VALUES (2, "Scott Cawthon");
+INSERT INTO developers VALUES (1, "LocalThunk", );
+INSERT INTO developers VALUES (2, "Scott Cawthon", );
+
+-------------------------------------------
+-- DEVELOPERS
+-------------------------------------------
+DROP TABLE developers;
+
+CREATE TABLE developers (
+    developer_id INT(12) AUTO_INCREMENT NOT NULL,
+    developer_name VARCHAR(255) DEFAULT NULL,
+
+    user_id INT(12) DEFAULT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+INSERT INTO developers VALUES (1, "LocalThunk", );
+INSERT INTO developers VALUES (2, "Scott Cawthon", );
 
 -------------------------------------------
 -- GAMES 
@@ -45,14 +108,15 @@ CREATE TABLE games (
     game_banner VARCHAR(255) DEFAULT NULL,
     game_photo VARCHAR(255) DEFAULT NULL,
     game_ad INT(1) DEFAULT NULL,
+    ad_name VARCHAR(255) DEFAULT NULL,
 
     developer_id int(12),
     FOREIGN KEY (developer_id) REFERENCES developers(developer_id)
 );
 
-INSERT INTO games VALUES (1, "Balatro", "gambling", "", "", "", 0, 1);
-INSERT INTO games VALUES (2, "Five Nights at Freddy's", "scary", "", "", "", 0, 2);
-INSERT INTO games VALUES (3, "Clash Royale", "broken", "", "", "", 0, 2);
+INSERT INTO games VALUES (1, "Balatro", "gambling", "", "balatro", "", 0, 1, "");
+INSERT INTO games VALUES (2, "Five Nights at Freddy's", "scary", "", "fnaf", "", 0, 2, "fnaf");
+INSERT INTO games VALUES (3, "Clash Royale", "broken", "", "clashroyale", "", 0, 2, "");
 
 
 -------------------------------------------
@@ -85,20 +149,3 @@ CREATE TABLE game_category (
     genre_id int(24),
     FOREIGN KEY (genre_id) REFERENCES genres(genre_id)
 );
-
--------------------------------------------
--- USERS
--------------------------------------------
-CREATE TABLE users (
-    id INT(12) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(100) NOT NULL,
-    password VARCHAR(500) NOT NULL,
-    email VARCHAR(150) DEFAULT NULL,
-    banner_name VARCHAR(500) DEFAULT NULL,
-    profile_picture_name VARCHAR(500) DEFAULT NULL,
-
-    cart_id INT(12),
-    FOREIGN KEY (cart_id) REFERENCES cart(cart_id)
-);
-
-INSERT INTO users VALUES (1, "jeb12", "jebjebjeb", "jeb12@gmail.com", "", "", 1);

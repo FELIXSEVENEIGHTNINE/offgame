@@ -11,9 +11,9 @@ while ($row = $request->fetch_assoc()) {
 
     echo "<div class='col-3'>";
         echo "<a href=''> <div class='card' id='game-card'>";
-            echo "<img src='' class='card-img-top'>";
+            echo "<img src='../assets/img/".$row['game_logo'].".jpg' class='card-img-top'>";
             echo "<div class='card-body'>";
-                echo "<img src='".$row['game_logo']."'>";
+                //echo "<img src='".$row['game_logo']."'>";
                 echo "<h5 class='card-title'>".$row['game_name']."</h5>";
                 echo "<p class='card-text'>".$row['game_developer']."</p>";
             echo "</div>";

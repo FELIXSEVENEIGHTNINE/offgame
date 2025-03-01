@@ -12,7 +12,19 @@
 
     }
 
-    function getUserById() {
+    function getUserById($user_id, $data) {
+        include('../api/config.php');
+        try {
+            $result = mysqli_query($conn, "SELECT * FROM users WHERE user_id='$user_id'");
+
+            if ($data == "username") {
+                return $result['username'];
+            }
+            
+            return $result;
+        } catch (Exception $e) {
+            return 0;
+        }
 
     }
 
@@ -43,10 +55,10 @@
     function addUser($array_info) {
         include('../api/config.php');
 
-        $user_id = $array_info[1];
-        $username = $array_info[2];
-        $password = $array_info[3];
-        $email = $array_info[4];
+        $user_id = $array_info[0];
+        $username = $array_info[1];
+        $password = $array_info[2];
+        $email = $array_info[3];
 
         try {
             $result = mysqli_query($conn, "INSERT INTO users (user_id, username, password, email) VALUES ($user_id, '$username', '$password', '$email')");
@@ -56,7 +68,25 @@
         }
     }
 
-    function updateUser() {
+    function updateUser($array_info) {
+        include('../api/config.php');
+        $user_id = $array_info[0];
+        $username = $array_info[1];
+        $password = $array_info[2];
+        $email = $array_info[3];
+
+        if($username == NULL) {
+            $username = getUserById($user_id, "username");
+        }
+
+        try {
+            $result = mysqli_query($conn, "UPDATE users SET username='$username', password='$password', email='$email' WHERE user_id=$user_id");
+            return $result;
+        } catch (Exception $e) {
+            return "Error";
+        }
+
+        //UPDATE users SET password="password" WHERE
 
     }
 

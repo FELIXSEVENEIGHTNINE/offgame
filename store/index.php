@@ -78,12 +78,12 @@
                     <label for="filter1">Action</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" id="filter1" name="" value="Action">
-                    <label for="filter1">Action</label>
+                    <input type="checkbox" id="filter2" name="" value="Stealth">
+                    <label for="filter2">Stealth</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" id="filter1" name="" value="Action">
-                    <label for="filter1">Action</label>
+                    <input type="checkbox" id="filter3" name="" value="Puzzle">
+                    <label for="filter3">Puzzle</label>
                 </div>
             </div>
 

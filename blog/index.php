@@ -1,3 +1,8 @@
+<?php
+    include_once('../api/api.php');
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -45,8 +50,11 @@
                 </a>
             </div>
 
-            <div class="col-10" style="background-color: #454955">
-                
+            <div class="col-10" style="background-color: #454955; color: White; padding: 40px;">
+                <?php
+                    $request = Blog("GET");
+                    include_once('../assets/php/getBlog.php');
+                ?>
             </div>
 
         </div>

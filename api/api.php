@@ -32,6 +32,10 @@
 
         if ($method == "PUT") {
             $func = editUsers($array_info);
+            if ($func == "Error") {
+                echo "Error adding.";
+                return;
+            }
         }
     }
 
@@ -99,6 +103,19 @@
             
         }
         
+    }
+
+    function Blog($method) {
+        include_once('controller/BlogController.php');
+
+        if ($method == "GET") {
+            $func = getBlog();
+            if ($func == "Error") {
+                echo "Error.";
+                return;
+            }
+            return $func; 
+        }
     }
 
 
