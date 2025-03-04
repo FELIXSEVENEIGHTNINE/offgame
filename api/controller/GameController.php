@@ -12,7 +12,18 @@
 
     }
 
-    function getGamesById() {
+    function getGameById($id) {
+        include('../api/config.php');
+
+
+        try {
+            $result = mysqli_query($conn, "SELECT * FROM games WHERE game_id=$id");
+            $row = $result->fetch_assoc();
+
+            return $row;
+        } catch (Exception $e) {
+            return "Error";
+        }
 
     }
 

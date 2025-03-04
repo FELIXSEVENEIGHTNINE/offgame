@@ -37,31 +37,62 @@
             <!-- <form method="POST"> -->
                 <div class="form-check form-check-inline">
                     <label class="form-check-label" for="inlineRadio1"> Easy </label>
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Easy" checked>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Easy" checked onclick="setDifficulty(1)">
                 </div>
                 <div class="form-check form-check-inline">
                     <label class="form-check-label" for="inlineRadio2"> Normal </label>
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Normal">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Normal" onclick="setDifficulty(2)">
                 </div>
                 <div class="form-check form-check-inline">
                     <label class="form-check-label" for="inlineRadio3"> Hard </label>
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Hard">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Hard" onclick="setDifficulty(3)">
                 </div>
                 <div class="form-check form-check-inline">
                     <label class="form-check-label" for="inlineRadio4"> Expert </label>
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="Expert">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="Expert" onclick="setDifficulty(4)">
                 </div>
 
                 <button class="btn btn-outline-primary" onclick="play()"> Play </button>
             <!-- </form> -->
         </div>
+
         <div class="col">
             <h2> Achievements: </h2>
+            <h4 class="text-primary">Try Playing Dead<small class="text-body-secondary"> Beat the game in Easy mode.</small><h4>
+            <h4 class="text-danger">Poor Choice Career<small class="text-body-secondary"> Beat the game in Normal mode.</small><h4>
+            <h4 class="text-danger">Never Stood A Chance<small class="text-body-secondary"> Beat the game in Hard mode.</small><h4>
+            <h4 class="text-danger">Together, We Are FNAF<small class="text-body-secondary"> Beat the game in Expert mode.</small><h4>
+
+            <h4 class="text-danger">Give Gifts, Give Life<small class="text-body-secondary"> Unlock the merch page.</small><h4>
+            <h4 class="text-danger">Happiest Day<small class="text-body-secondary"> Unlock the movies page.</small><h4>
+            <h4 class="text-danger">I'm Pretending<small class="text-body-secondary"> Unlock the books page.</small><h4>
+
+            <h4 class="text-danger">Hello, Hello<small class="text-body-secondary"> Listen to the Phone Guy.</small><h4>
+
+            <h4 class="text-danger">We are still your friends<small class="text-body-secondary"> Give Fredbear friends.</small><h4>
+            <h4 class="text-danger">Keep it wound up<small class="text-body-secondary"> Wind up the music box.</small><h4>
+            <h4 class="text-danger">ITS ME<small class="text-body-secondary"> Secret~</small><h4>
         </div>
     </div>
 </div>
 
 <script>
+
+    function setDifficulty(diff) {
+        if (diff == 1) {
+            console.log("Easy");
+        } else if (diff == 2) {
+            console.log("Normal");
+        } else if (diff == 3) {
+            console.log("Hard");
+        } else if (diff == 4) {
+            console.log("Expert");
+        }
+    }
+
+    window.onload = setDifficulty(1);
+
+
     function play() {
         const currentUrl = window.location.href;
         console.log(currentUrl);

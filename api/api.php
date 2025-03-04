@@ -39,16 +39,55 @@
         }
     }
 
+    function UserEmail($method, $email) {
+        include_once('controller/UserController.php');
+
+        if ($method == "GET") {
+            $userid = getUserId($email);
+            if($userid != "Error") {
+                return $userid;
+            }
+        }
+    }
+
     function UserLogin($email, $password) {
         include_once('controller/UserController.php');
-        $login_username = getUserByEmail($email);
-        $login_password = getUserPassword($password);
+        $login_password = getUserPassword($email, $password);
 
-        if(!$login_username || !$login_password) {
-            echo "Error authenticating.";
-            return;
+        if($password != $login_password) {
+            return 0;
+        }
+        return 1;
+    }
+
+    function UserRegister($email, $username, $password) {
+        include_once('controller/UserController.php');
+        
+        $info = array($email, $username, $password);
+
+
+        $register = addUser($info);
+
+        if($register != 1) {
+            return 0;
         }
 
+        return 1;
+
+    }
+
+    function GameId($method,$id) {
+        include_once('controller/GameController.php');
+
+        if($method == "GET") {
+            $func = getGameById($id);
+            if ($func == "Error") {
+                echo "Error.";
+                return;
+            }
+
+            return $func; 
+        }
     }
 
     function Games($method) {

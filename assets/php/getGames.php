@@ -10,7 +10,7 @@ while ($row = $request->fetch_assoc()) {
     }
 
     echo "<div class='col-3'>";
-        echo "<a href=''> <div class='card' id='game-card'>";
+        echo "<a href='game.php?gameid=".$row['game_id']."'> <div class='card' id='game-card'>";
             echo "<img src='../assets/img/".$row['game_logo'].".jpg' class='card-img-top'>";
             echo "<div class='card-body'>";
                 //echo "<img src='".$row['game_logo']."'>";

@@ -8,11 +8,11 @@ body {
 
 a {
     text-align: center;
-    background-color: Black;
+    /* background-color: Black; */
     text-decoration: none;
 
     font-family: Arial;
-    color: White;
+    color: Blue;
 }
 
 .transition {

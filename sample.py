@@ -1,4 +1,4 @@
-#import pandas as pd
+import pandas as pd
 from pyscript import document
 
 data = pd.read_csv('assets/dataset.csv')

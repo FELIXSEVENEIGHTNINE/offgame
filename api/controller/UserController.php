@@ -12,6 +12,19 @@
 
     }
 
+    function getUserId($email) {
+        include('../api/config.php');
+
+        try {
+            $result = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
+            $row = $result->fetch_assoc();
+
+            return $row['user_id'];
+        } catch (Exception $e) {
+            return "Error";
+        }
+    }
+
     function getUserById($user_id, $data) {
         include('../api/config.php');
         try {
@@ -19,6 +32,9 @@
 
             if ($data == "username") {
                 return $result['username'];
+            }
+            if ($data == "email") {
+                return $result['email'];
             }
             
             return $result;
@@ -42,26 +58,29 @@
 
     }
     
-    function getUserPassword($password) {
+    // only important for logging in
+    function getUserPassword($email, $password) {
         include('../api/config.php');
         try {
-            $result = mysqli_query($conn, "SELECT * FROM users WHERE password='$password'");
-            return $result;
+            $result = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
+            $row = $result->fetch_assoc();
+
+            return $row['password'];
         } catch (Exception $e) {
-            return 0;
+            return "Error.";
         }
     }
 
     function addUser($array_info) {
         include('../api/config.php');
 
-        $user_id = $array_info[0];
-        $username = $array_info[1];
-        $password = $array_info[2];
-        $email = $array_info[3];
+        //$user_id = $array_info[0];
+        $username = $array_info[0];
+        $password = $array_info[1];
+        $email = $array_info[2];
 
         try {
-            $result = mysqli_query($conn, "INSERT INTO users (user_id, username, password, email) VALUES ($user_id, '$username', '$password', '$email')");
+            $result = mysqli_query($conn, "INSERT INTO users (username, password, email) VALUES ('$username', '$password', '$email')");
             return $result;
         } catch (Exception $e) {
             return "Error";

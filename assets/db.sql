@@ -20,11 +20,11 @@ INSERT INTO users VALUES (1, "jeb12", "jebjebjeb", "jeb12@gmail.com", "", "");
 DROP TABLE IF EXISTS admin;
 
 CREATE TABLE admin (
-    admin_id INT(6) AUTO_INCREMENT PRIMARY KEY,
+    admin_id VARCHAR(12) PRIMARY KEY,
     admin_username VARCHAR(255) NOT NULL,
     admin_num VARCHAR(12) NOT NULL,
     admin_password VARCHAR(500) NOT NULL,
-    user_id INT(12)
+    user_id INT(12) UNSIGNED
 );
 
 ALTER TABLE admin ADD CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(user_id);
@@ -64,6 +64,18 @@ CREATE TABLE credit (
 INSERT INTO developers VALUES (1, "1200", "", 1);
 
 -------------------------------------------
+-- CART
+-------------------------------------------
+CREATE TABLE cart (
+    cart_id INT(12) PRIMARY KEY,
+    game_id INT(24),
+
+    FOREIGN KEY (game_id) REFERENCES games(game_id),
+
+
+);
+
+-------------------------------------------
 -- DEVELOPERS
 -------------------------------------------
 DROP TABLE developers;
@@ -94,6 +106,21 @@ CREATE TABLE developers (
 
 INSERT INTO developers VALUES (1, "LocalThunk", );
 INSERT INTO developers VALUES (2, "Scott Cawthon", );
+
+-------------------------------------------
+-- POST
+-------------------------------------------
+DROP TABLE post;
+
+CREATE TABLE post(
+    post_id INT(6) AUTO_INCREMENT PRIMARY KEY,
+    post_title VARCHAR(255) DEFAULT NULL,
+    post_content VARCHAR(10000) DEFAULT NULL,
+    user_id INT(12),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+);
+
+INSERT INTO post VALUES (1, "First post", "Hello", 1);
 
 -------------------------------------------
 -- GAMES 

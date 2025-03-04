@@ -55,7 +55,7 @@
                     <hr>
                     <?php 
                         $request = Ads("GET");
-                        include_once('../assets/php/getAdGames.php')
+                        include_once('../assets/php/getAdGames.php');
                     ?>
                 </header>
                 <br>
@@ -71,20 +71,11 @@
             </div>
 
             <div class="col-2" style="background-color: #394053; color: White;">
-                <p style="margin-bottom: -15px"> Filters </p>
-                <hr>
-                <div class="form-check">
-                    <input type="checkbox" id="filter1" name="" value="Action">
-                    <label for="filter1">Action</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" id="filter2" name="" value="Stealth">
-                    <label for="filter2">Stealth</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" id="filter3" name="" value="Puzzle">
-                    <label for="filter3">Puzzle</label>
-                </div>
+                <?php
+                    include("../assets/php/getTags.php");
+                    include("../assets/php/getGenres.php");
+                    include("../assets/php/getCategories.php");
+                ?>
             </div>
 
         </div>

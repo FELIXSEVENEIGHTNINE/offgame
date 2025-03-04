@@ -45,9 +45,9 @@
                     </div>
                 </a>
             </div>
-            <div class="col-10" style="background-color: #454955">
+            <div class="col-10">
                 <header>
-                    <section>
+                    <section class="not-opposite">
                         <div class="row">
                             <div class="col">
                                 <h1 class="main-header">We sell games...</h1>
@@ -72,14 +72,17 @@
                             <div data-bs-toggle="collapse" data-bs-target="#mission" class="main-collapse"><h1 class="collapse-main">Mission</h1></div>
                             <div id="mission" class="collapse main-collapse-info">
                                 <div class="main-collapse-info-text">
-                                    placeholder
+                                    OFFGame provides game developers with tools and find their audience. <br>
+                                    <br>
+                                    OFF Game offers players an accessible platform to discover and play unique, independent games.
                                 </div>
                             </div>
             
                             <div data-bs-toggle="collapse" data-bs-target="#vision" class="main-collapse"><h1 class="collapse-main">Vision</h1></div>
                             <div id="vision" class="collapse main-collapse-info">
                                 <div class="main-collapse-info-text">
-                                    placeholder
+                                    OFFGame wishes to support independent developers, and to create a world where players own their games.
+                                    Everyone is welcome to find their game and meaning.
                                 </div>
                             </div>
                         </div>
@@ -103,19 +106,28 @@
                             <div data-bs-toggle="collapse" data-bs-target="#sellers" class="main-collapse"><h1 class="collapse-opposite">Sellers</h1></div>
                             <div id="sellers" class="collapse main-collapse-opposite">
                                 <div class="main-collapse-info-text">
-                                    placeholder
+                                    Whether you are an indie developer or a game studio, OFFGame promotes your games.
                                 </div>
                             </div>
             
-                            <div data-bs-toggle="collapse" data-bs-target="#compete" class="main-collapse"><h1 class="collapse-opposite">Competitors</h1></div>
-                            <div id="compete" class="collapse main-collapse-opposite">
+                            <div data-bs-toggle="collapse" data-bs-target="#tools" class="main-collapse"><h1 class="collapse-opposite">Tools</h1></div>
+                            <div id="tools" class="collapse main-collapse-opposite">
                                 <div class="main-collapse-info-text">
-                                    placeholder
+                                    OFFGame offers many tools to help developers understand how popular their games are.
+                                </div>
+                            </div>
+
+                            <div data-bs-toggle="collapse" data-bs-target="#services" class="main-collapse"><h1 class="collapse-opposite">Services</h1></div>
+                            <div id="services" class="collapse main-collapse-opposite">
+                                <div class="main-collapse-info-text">
+                                    OFFGame offers a service that promotes games as gamified ads. If you are interested in making a demo for your game, you can count on us to create a
+                                    demo for you!
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <section>
+
+                    <section class="not-opposite">
                         <div class="row">
                             <div class="col">
                                 <h1 class="main-header">Keep us a secret...</h1>
@@ -144,7 +156,7 @@
                             <div data-bs-toggle="collapse" data-bs-target="#terms" class="main-collapse"><h1 class="collapse-main">Terms of Service</h1></div>
                             <div id="terms" class="collapse main-collapse-info">
                                 <div class="main-collapse-info-text">
-                                    placeholder
+                                    If you are interested in viewing the entire ToS, <a href="">click here</a>!
                                 </div>
                             </div>
                         </div>
@@ -167,14 +179,14 @@
                             <div data-bs-toggle="collapse" data-bs-target="#story" class="main-collapse"><h1 class="collapse-opposite">Story</h1></div>
                             <div id="story" class="collapse main-collapse-opposite">
                                 <div class="main-collapse-info-text">
-                                    placeholder
+                                    OFFGame started in 2020 amidst the COVID-19 pandemic. A small friend group (we're only three) decided to make a website for a certain type of people.
                                 </div>
                             </div>
             
                             <div data-bs-toggle="collapse" data-bs-target="#policy" class="main-collapse"><h1 class="collapse-opposite">Privacy Policy</h1></div>
                             <div id="policy" class="collapse main-collapse-opposite">
                                 <div class="main-collapse-info-text">
-                                    placeholder
+                                If you are interested in viewing the entire policy, <a href="">click here</a>!
                                 </div>
                             </div>
                         </div>

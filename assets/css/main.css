@@ -46,13 +46,6 @@ header {
         
     }
 
-.opposite {
-    background-color: #394053;
-    color: White;
-    margin-left: -12px;
-    margin-right: -12px;
-}
-
 .main-collapse-opposite {
     background-color: #B2FFA9;
     color: Black;
@@ -63,6 +56,17 @@ header {
 
 section {
     padding-top: 50px;
+}
+
+.not-opposite {
+    background-color: #454955;
+}
+
+.opposite {
+    background-color: #394053;
+    color: White;
+    margin-left: -12px;
+    margin-right: -12px;
 }
 
 .main-header {
