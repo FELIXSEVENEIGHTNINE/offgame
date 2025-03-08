@@ -29,6 +29,10 @@
 
     }
 
+    function getGameGenre() {
+        // SELECT game_category.game_id, game_category.genre_id, genres.genre_name, games.game_name FROM ((game_category INNER JOIN games ON game_category.game_id = games.game_id) INNER JOIN genres ON game_category.genre_id = genres.genre_id);
+    }
+
     function addGame() {
 
     }

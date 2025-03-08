@@ -21,6 +21,7 @@ DROP TABLE IF EXISTS admin;
 
 CREATE TABLE admin (
     admin_num VARCHAR(12) PRIMARY KEY,
+    admin_id INT(6) NOT NULL,
     user_id INT(12) DEFAULT NULL,
     admin_username VARCHAR(255) NOT NULL,
     admin_password VARCHAR(500) NOT NULL
@@ -28,8 +29,8 @@ CREATE TABLE admin (
 
 -- ALTER TABLE admin ADD FOREIGN KEY (user_id) REFERENCES users(user_id);
 
-INSERT INTO admin (admin_num, admin_username, admin_password) VALUES ("1A2B3C4D5E6F", "admin", "test");
-INSERT INTO admin VALUES ("123ASD456FGH", 1, "yes", "test2");
+INSERT INTO admin (admin_num, admin_id, admin_username, admin_password) VALUES ("1A2B3C4D5E6F", 1, "admin", "test");
+INSERT INTO admin VALUES ("123ASD456FGH", 2, 1, "yes", "test2");
 
 -------------------------------------------
 -- BLOG 
@@ -159,10 +160,10 @@ INSERT INTO games VALUES (3, "Clash Royale", "broken", "clashroyale", "", "",  0
 -- GENRES
 -------------------------------------------
 
-DROP TABLE genres;
+DROP TABLE IF EXISTS genres;
 
 CREATE TABLE genres (
-    genre_id INT(12) AUTO_INCREMENT NOT NULL,
+    genre_id INT(12) AUTO_INCREMENT PRIMARY KEY, 
     genre_name VARCHAR(255) DEFAULT NULL
 );
 
@@ -174,17 +175,20 @@ INSERT INTO genres VALUES (2, "Horror");
 -------------------------------------------
 -- GAME CATEGORY
 -------------------------------------------
-DROP TABLE game_category;
+DROP TABLE IF EXISTS game_category;
 
 CREATE TABLE game_category (
-    category_id INT(24) AUTO_INCREMENT NOT NULL,
+    category_id INT(24) AUTO_INCREMENT PRIMARY KEY,
     
     game_id INT(24),
-    FOREIGN KEY (game_id) REFERENCES games(game_id),
-    
-    genre_id int(24),
-    FOREIGN KEY (genre_id) REFERENCES genres(genre_id)
+    genre_id int(12)
 );
+
+ALTER TABLE game_category ADD FOREIGN KEY (game_id) REFERENCES games(game_id);
+ALTER TABLE game_category ADD FOREIGN KEY (genre_id) REFERENCES genres(genre_id);
+
+INSERT INTO game_category (game_id, genre_id) VALUES (2, 1);
+INSERT INTO game_category (game_id, genre_id) VALUES (2, 2);
 
 -------------------------------------------
 -- ACHIEVEMENTS
