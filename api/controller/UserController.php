@@ -25,10 +25,26 @@
         }
     }
 
+    function getUserByIdSingle($user_id) {
+        include('../api/config.php');
+        try {
+            $result = mysqli_query($conn, "SELECT * FROM users WHERE user_id='$user_id'");
+            $row = $result->fetch_assoc();
+            return $row;
+        } catch (Exception $e) {
+            return 0;
+        }
+
+    }
+
     function getUserById($user_id, $data) {
         include('../api/config.php');
         try {
             $result = mysqli_query($conn, "SELECT * FROM users WHERE user_id='$user_id'");
+            if($data == "ALL") {
+                $row = $result->fetch_assoc();
+                return $row;
+            }
 
             if ($data == "username") {
                 return $result['username'];

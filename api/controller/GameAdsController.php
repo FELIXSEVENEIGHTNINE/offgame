@@ -4,7 +4,7 @@
     function getGameAds() {
         include('../api/config.php');
         try {
-            $result = mysqli_query($conn, "SELECT * FROM games WHERE ad=1");
+            $result = mysqli_query($conn, "SELECT * FROM games WHERE game_ad=1");
             return $result;
         } catch (Exception $e) {
             return "Error";

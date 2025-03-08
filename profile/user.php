@@ -1,29 +1,9 @@
 <?php
-    if(isset($_POST['submit'])) {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
-        include_once('../api/api.php');
-        $auth = UserAuth($email, $password);
-
-        if($auth == 1) {
-            //set($_SESSION['email']);
-            // $_SESSION['email'];
-            $id = LogInUser($email);
-            header("Location: user.php?id=$id");
-        }
-
-        // include_once('../api/config.php');
-        //$result = mysqli_query($conn, "SELECT * FROM users WHERE email='$em'");
-        //$row = $result->fetch_assoc();
-
-        // if($row['password'] == $password) {
-        //     header("Location: user/");
-        // }
-    }
-
+    include_once('../api/api.php');
     //echo session_status();
+    $userid = $_GET['id'];
 
+    $userArray = UserId("GET", $userid);
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +23,7 @@
         
         <div class="row">
             <div class="col-2">
-                <a href="..">
+                <a href="../">
                     <div class="homepage transition-short inactive-link" id="main" onmouseover="linkHover()" onmouseout="linkHoverOff()">
                         <img src="../assets/img/game_logo_2.png" id="link-image"> 
                     </div>
@@ -61,7 +41,7 @@
                     </div>
                 </a>
 
-                <a href="">
+                <a href="../">
                     <div class="button-link transition active-link">
                         <p>Profile</p>
                     </div>
@@ -74,27 +54,24 @@
                 </a>
             </div>
 
-            <div class="col-10" style="background-color: #454955; color: White; padding: 0px;">
-                <h2> Login </h2>
-                <form method='POST' action="login.php">
-                    Email: <input type='text' name='email'> <br>
-                    Password: <input type='password' name='password'> <br>
-                    <button type='submit' name='submit'> Submit </button>
-                </form>
-                <p>Don't have an account? <a href="register.php">Register</a> now!</p>
+            <div class="col-10 main">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="container-fluid banner">
+                            <div class="d-inline-flex">
+                                <div class="profilepicture"></div> 
+                                <p class="username"><?php echo $userArray['username'] ?></p> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <a href="logout.php">Log out</a>
+                    </div>
+                </div>
             </div>
 
         </div>
         <div id="footer">
         </div>
     </body>
-    <script type='text/javascript'> 
-        function changeToRegister() {
-            document.getElementById['frame'].src = 'register.php';
-        }
-
-        function changeToLogin() {
-            document.getElementById['frame'].src = 'login.php';
-        }
-    </script>
 </html>

@@ -5,7 +5,7 @@
         $password = $_POST['password'];
 
         include_once('../api/api.php');
-        $auth = UserRegister($email, $username, $password);
+        $auth = RegisterUser($email, $username, $password);
 
         if($auth == 1) {
             header("Location: user/");

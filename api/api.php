@@ -2,7 +2,7 @@
     //header("Content-Type: application/json");
 
     //rest api
-    function User($method) {
+    function User($method, $id) {
         include_once('controller/UserController.php');
 
         if ($method == "GET") {
@@ -12,6 +12,15 @@
                 return;
             }
             return $func; 
+        }
+
+        if ($method == "GET" && is_int($id)) {
+            $arr = getUserById($id,"ALL");
+            if ($arr == "Error") {
+                echo "Error.";
+                return;
+            }
+            return $arr; 
         }
 
         if ($method == "DELETE") {
@@ -39,18 +48,50 @@
         }
     }
 
-    function UserEmail($method, $email) {
+    function RegisterUser($email, $username, $password) {
+        include_once('controller/UserController.php');
+        
+        $info = array($email, $username, $password);
+        $register = addUser($info);
+
+        if($register != 1) {
+            return 0;
+        }
+
+        return 1;
+
+    }
+
+    function LogInUser($email) {
         include_once('controller/UserController.php');
 
-        if ($method == "GET") {
+        //if ($method == "GET") {
             $userid = getUserId($email);
             if($userid != "Error") {
                 return $userid;
             }
-        }
+        //}
     }
 
-    function UserLogin($email, $password) {
+    function AdminAuth($number, $password) {
+        include_once('controller/AdminController.php');
+
+        $NumberCheck = checkAdminNumber($number);
+        if(!$NumberCheck) return "Wrong Number";
+
+        $PassCheck = getAdminPasswordByNumber($number);
+        if($PassCheck != $password) return "Wrong Password";
+
+        return 1;
+    }
+
+    function AdminId($method, $number) {
+        include_once('controller/AdminController.php');
+        
+        if($method == "GET") return getAdminId($number);
+    }
+
+    function UserAuth($email, $password) {
         include_once('controller/UserController.php');
         $login_password = getUserPassword($email, $password);
 
@@ -60,20 +101,18 @@
         return 1;
     }
 
-    function UserRegister($email, $username, $password) {
+    function UserId($method,$id) {
         include_once('controller/UserController.php');
-        
-        $info = array($email, $username, $password);
 
+        if($method == "GET") {
+            $func = getUserByIdSingle($id);
+            if ($func == "Error") {
+                echo "Error.";
+                return;
+            }
 
-        $register = addUser($info);
-
-        if($register != 1) {
-            return 0;
+            return $func; 
         }
-
-        return 1;
-
     }
 
     function GameId($method,$id) {

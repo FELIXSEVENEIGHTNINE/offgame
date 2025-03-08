@@ -15,7 +15,7 @@ while ($row = $request->fetch_assoc()) {
             echo "<div class='card-body'>";
                 //echo "<img src='".$row['game_logo']."'>";
                 echo "<h5 class='card-title'>".$row['game_name']."</h5>";
-                echo "<p class='card-text'>".$row['game_developer']."</p>";
+                echo "<p class='card-text'>".$row['developer_name']."</p>";
             echo "</div>";
         echo "</div> </a>";
     echo "</div>";

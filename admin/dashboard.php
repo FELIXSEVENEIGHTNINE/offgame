@@ -1,3 +1,11 @@
+<?php
+    include_once('../api/api.php');
+    //echo session_status();
+    $id = $_GET['id'];
+
+    $userArray = AdminId("GET", $id);
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,28 +21,7 @@
     </head>
     <body>
         <div class="container">
-            <form method="POST">
-                Enter your admin ID:
-                <input name="num" type="text">
-                Enter your password:
-                <input name="password" type="password">
-                
-                <button type='submit' name='adminSubmit'>Submit</button>
-
-                <?php
-                    // check if admin id is valid first
-                    if(isset($_POST['adminSubmit'])) {
-                        $number = $_POST['num'];
-                        $password = $_POST['password'];
-
-                        include("../api/api.php");
-                        if(AdminAuth($number, $password)) {
-                            $id = AdminId("GET", $number);
-                            header("Location: dashboard.php?id=$id");
-                        }
-                    }
-                ?>
-            </form>
+            <h2> Hello </h2>
         </div>
 
 

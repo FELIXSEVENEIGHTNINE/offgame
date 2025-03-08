@@ -58,19 +58,20 @@
 
         <div class="col">
             <h2> Achievements: </h2>
+            <?php ?>
             <h4 class="text-primary">Try Playing Dead<small class="text-body-secondary"> Beat the game in Easy mode.</small><h4>
             <h4 class="text-danger">Poor Choice Career<small class="text-body-secondary"> Beat the game in Normal mode.</small><h4>
             <h4 class="text-danger">Never Stood A Chance<small class="text-body-secondary"> Beat the game in Hard mode.</small><h4>
             <h4 class="text-danger">Together, We Are FNAF<small class="text-body-secondary"> Beat the game in Expert mode.</small><h4>
 
             <h4 class="text-danger">Give Gifts, Give Life<small class="text-body-secondary"> Unlock the merch page.</small><h4>
-            <h4 class="text-danger">Happiest Day<small class="text-body-secondary"> Unlock the movies page.</small><h4>
+            <h4 class="text-danger">Earlier That Night<small class="text-body-secondary"> Unlock the movies page.</small><h4>
             <h4 class="text-danger">I'm Pretending<small class="text-body-secondary"> Unlock the books page.</small><h4>
 
             <h4 class="text-danger">Hello, Hello<small class="text-body-secondary"> Listen to the Phone Guy.</small><h4>
 
-            <h4 class="text-danger">We are still your friends<small class="text-body-secondary"> Give Fredbear friends.</small><h4>
-            <h4 class="text-danger">Keep it wound up<small class="text-body-secondary"> Wind up the music box.</small><h4>
+            <h4 class="text-danger">We Are Still Your Friends<small class="text-body-secondary"> Give Fredbear friends.</small><h4>
+            <h4 class="text-danger">Keep It Wound Up<small class="text-body-secondary"> Wind up the music box.</small><h4>
             <h4 class="text-danger">ITS ME<small class="text-body-secondary"> Secret~</small><h4>
         </div>
     </div>
