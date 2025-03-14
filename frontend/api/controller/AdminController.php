@@ -17,7 +17,7 @@
         include('../api/config.php');
 
         try {
-            $result = mysqli_query($conn, "SELECT * FROM admin WHERE admin_num=$number");
+            $result = mysqli_query($conn, "SELECT * FROM admin WHERE admin_num='$number'");
             $row = $result->fetch_assoc();
 
             return $row['password'];
@@ -30,10 +30,27 @@
         include('../api/config.php');
 
         try {
-            $result = mysqli_query($conn, "SELECT * FROM admin WHERE admin_num=$number");
+            $result = mysqli_query($conn, "SELECT * FROM admin WHERE admin_num='$number'");
             $row = $result->fetch_assoc();
-
+            
             return $row['admin_id'];
+
+            //return $result;
+        } catch (Exception $e) {
+            return "Error";
+        }
+    }
+
+    function getAdmin($id) {
+        include('../api/config.php');
+
+        try {
+            $result = mysqli_query($conn, "SELECT * FROM admin WHERE admin_id=$id");
+            $row = $result->fetch_assoc();
+            
+            return $row;
+
+            //return $result;
         } catch (Exception $e) {
             return "Error";
         }

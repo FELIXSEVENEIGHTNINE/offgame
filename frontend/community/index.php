@@ -43,18 +43,28 @@
                         <p>Blog</p>
                     </div>
                 </a>
+
+                <a href="../recommendation/">
+                    <div class="button-link transition inactive-link">
+                        <p>Recommendation</p>
+                    </div>
+                </a>
             </div>
 
-            <div class="col-10" style="background-color: #454955">
+            <div class="col-10" style="background-color: #454955; color: White; padding:40px;">
+                <h1>Communities</h1> <hr>
                 <?php
-                    
+                    include("../assets/php/getCommunities.php");
+                ?>
 
+                <h1>Posts</h1> <hr>
+                <?php
+                    include("../assets/php/getPosts.php");
                 ?>
             </div>
 
         </div>
         <div id="footer">
-            hi
         </div>
     </body>
 </html>

@@ -3,7 +3,11 @@
     //echo session_status();
     $id = $_GET['id'];
 
-    $userArray = AdminId("GET", $id);
+    if ($id == NULL) {
+        header("Location: index.php");
+    }
+
+    $info = Admin("GET", $id);
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +25,23 @@
     </head>
     <body>
         <div class="container">
-            <h2> Hello </h2>
+            <a href="../">Go back home </a>
+        </div>
+        <div class="container">
+            <h2> Hello <?php echo $info['admin_username']?></h2>
+
+            <h3>Functions</h3><hr>
+            <button class="btn btn-primary">Edit Profile</button>
+            <button class="btn btn-primary">Add Blog</button>
+            <button class="btn btn-primary">Edit Game</button>
+            <button class="btn btn-primary">Delete Game</button>
+
+
+            <h3>List of Advertised Games</h3><hr>
+
+            <h3>List of Games</h3><hr>
+
+
         </div>
 
 

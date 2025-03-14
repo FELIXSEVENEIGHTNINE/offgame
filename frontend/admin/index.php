@@ -36,6 +36,9 @@
                 ?>
             </form>
         </div>
+        <div class="container">
+            <a href="../">Go back home </a>
+        </div>
 
 
 

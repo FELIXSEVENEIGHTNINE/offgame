@@ -3,7 +3,17 @@
     //echo session_status();
     $userid = $_GET['id'];
 
+    if($userid == NULL) {
+        header("Location: index.php");
+    }
+
     $userArray = UserId("GET", $userid);
+
+    if(Developer("Check", $userid)) {
+        $devid = Developer("GET", $userid);
+        $gamesOwned = DeveloperGames($devid);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -52,20 +62,58 @@
                         <p>Blog</p>
                     </div>
                 </a>
+
+                <a href="../recommendation/">
+                    <div class="button-link transition inactive-link">
+                        <p>Recommendation</p>
+                    </div>
+                </a>
             </div>
 
             <div class="col-10 main">
                 <div class="row">
                     <div class="col-10">
-                        <div class="container-fluid banner">
+                        <div class='container-fluid banner' style="background-image:url('../assets/img/<?php echo $userArray['banner_name']?>.png')">
                             <div class="d-inline-flex">
-                                <div class="profilepicture"></div> 
+                                <div class="profilepicture"><img src="../assets/img/<?php echo $userArray['profile_picture_name']?>.png" style=""></div> 
                                 <p class="username"><?php echo $userArray['username'] ?></p> 
                             </div>
                         </div>
                     </div>
                     <div class="col-2">
-                        <a href="logout.php">Log out</a>
+                        <h2>Options</h2>
+                        <a href="edit.php?id=<?php echo $userid ?>"><button class="btn btn-primary">Edit Profile</button></a>
+                        <a href="logout.php"><button class="btn btn-primary">Log out</button></a>
+                    </div>
+                </div>
+
+                <div class="row profile-main">
+                    <div class="col-12">
+                        <h1>Published</h1> <hr>
+                        <div class="container-fluid">
+                            <div class="d-inline-flex">
+                                <?php 
+                                    
+                                    echo "<a href='game.php?gameid=".$gamesOwned['game_id']."'><div>";
+                                    echo "<img src='../assets/img/".$gamesOwned['game_logo'].".jpg' style='width:10%'>";
+                                    echo "<p style='color: White;'>".$gamesOwned['game_name']."</p></div></a>";
+                                    // echo $gamesOwned['developer_name']
+                                ?>
+                            </div>
+                        </div>
+
+                        <h1>Following</h1> <hr>
+                        <div class="container-fluid">
+                            <div class="d-inline-flex">
+                                <?php 
+                                    
+                                    echo "<a href='game.php?gameid=".$gamesOwned['game_id']."'><div>";
+                                    echo "<img src='../assets/img/".$gamesOwned['game_logo'].".jpg' style='width:10%'>";
+                                    echo "<p style='color: White;'>".$gamesOwned['game_name']."</p></div></a>";
+                                    // echo $gamesOwned['developer_name']
+                                ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

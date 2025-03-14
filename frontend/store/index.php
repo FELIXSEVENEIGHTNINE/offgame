@@ -47,6 +47,12 @@
                         <p>Blog</p>
                     </div>
                 </a>
+
+                <a href="../recommendation/">
+                    <div class="button-link transition inactive-link">
+                        <p>Recommendation</p>
+                    </div>
+                </a>
             </div>
 
             <div class="col-8" style="background-color: #454955; padding: 50px;">

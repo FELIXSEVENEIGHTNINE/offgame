@@ -9,6 +9,40 @@
   src: url(font/fnaf-font.ttf);
 }
 
+#battery_image {
+  position: absolute;
+  left: 9%; 
+  top: 87%;
+  
+}
+
+#camera_name {
+  position: absolute;
+  font-family: fnafFont;
+  color: white;
+  font-size: 50px;
+  left: 65%;
+  top: 27.5%;
+}
+
+#battery_usage {
+  position: absolute;
+  font-family: fnafFont;
+  color: white;
+  font-size: 50px;
+  top: 80%;
+  left: 1%; 
+}
+
+#battery_text {
+  position: absolute;
+  font-family: fnafFont;
+  color: white;
+  font-size: 50px;
+  top: 75%;
+  left: 1%; 
+}
+
 #time {
   position: absolute;
   font-family: fnafFont;

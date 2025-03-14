@@ -82,40 +82,22 @@ CREATE TABLE cart (
     game_id INT(24)
 );
 
-ALTER TABLE cart ADD FOREIGN KEY (game_id) REFERENCES game(game_id);
-
--------------------------------------------
--- DEVELOPERS
--------------------------------------------
-DROP TABLE developers;
-
-CREATE TABLE developers (
-    developer_id INT(12) AUTO_INCREMENT NOT NULL,
-    developer_name VARCHAR(255) DEFAULT NULL,
-
-    user_id INT(12) DEFAULT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
-);
-
-INSERT INTO developers VALUES (1, "LocalThunk", );
-INSERT INTO developers VALUES (2, "Scott Cawthon", );
-
 -------------------------------------------
 -- DEVELOPERS
 -------------------------------------------
 DROP TABLE IF EXISTS developers;
 
 CREATE TABLE developers (
-    developer_id INT(12) AUTO_INCREMENT PRIMARY KEY,
+    developer_id INT(12) AUTO_INCREMENT NOT NULL,
     developer_name VARCHAR(255) DEFAULT NULL,
 
-    user_id INT(12) DEFAULT NULL
+    user_id INT(12)
 );
 
 ALTER TABLE developers ADD FOREIGN KEY (user_id) REFERENCES users(user_id);
 
 INSERT INTO developers (developer_name) VALUES ("LocalThunk");
-INSERT INTO developers (developer_name) VALUES ("Scott Cawthon");
+INSERT INTO developers (developer_name, user_id) VALUES ("Scott Cawthon", 1);
 
 -------------------------------------------
 -- POST
@@ -152,7 +134,7 @@ CREATE TABLE games (
 ALTER TABLE games ADD FOREIGN KEY (developer_id) REFERENCES developers(developer_id);
 
 INSERT INTO games VALUES (1, "Balatro", "gambling", "balatro", "", "", 0, 1, "");
-INSERT INTO games VALUES (2, "Five Nights at Freddy's", "scary", "fnaf", "", "", 1, 2, "fnaf");
+INSERT INTO games VALUES (2, "Five Nights at Freddy's", "scary", "fnaf", "fnaf_banner", "", 1, 2, "fnaf");
 INSERT INTO games VALUES (3, "Clash Royale", "broken", "clashroyale", "", "",  0, 2, "");
 
 
@@ -222,11 +204,14 @@ CREATE TABLE achievements (
 
     game_id INT(24),
     user_id INT(12),
-    achievement_id VARCHAR(100) NOT NULL
+    achievement_id INT(12)
 );
 
-ALTER TABLE admin ADD FOREIGN KEY (game_id) REFERENCES game(game_id);
-ALTER TABLE admin ADD FOREIGN KEY (user_id) REFERENCES user(user_id);
-ALTER TABLE admin ADD FOREIGN KEY (achievement_id) REFERENCES achievement_data(achieve_id);
+ALTER TABLE achievements ADD FOREIGN KEY (game_id) REFERENCES games(game_id);
+ALTER TABLE achievements ADD FOREIGN KEY (user_id) REFERENCES users(user_id);
+ALTER TABLE achievements ADD FOREIGN KEY (achievement_id) REFERENCES achievement_data(achieve_id);
 
 INSERT INTO achievements VALUES (1, 2, 1, 1);
+INSERT INTO achievements VALUES (2, 2, 1, 2);
+INSERT INTO achievements VALUES (3, 2, 1, 3);
+INSERT INTO achievements VALUES (4, 2, 1, 4);

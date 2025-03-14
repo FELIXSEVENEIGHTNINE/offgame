@@ -40,11 +40,12 @@
         }
 
         if ($method == "PUT") {
-            $func = editUsers($array_info);
+            $func = updateUser($array_info);
             if ($func == "Error") {
-                echo "Error adding.";
-                return;
+                // echo "Error editing.";
+                return 0;
             }
+            return 1;
         }
     }
 
@@ -73,6 +74,12 @@
         //}
     }
 
+    function UserDetail($type, $id) {
+        include_once('controller/UserController.php');
+
+        return getUserDetailById($type, $id);
+    }
+
     function AdminAuth($number, $password) {
         include_once('controller/AdminController.php');
 
@@ -89,6 +96,12 @@
         include_once('controller/AdminController.php');
         
         if($method == "GET") return getAdminId($number);
+    }
+
+    function Admin($method, $id) {
+        include_once('controller/AdminController.php');
+
+        if($method == "GET") return getAdmin($id);
     }
 
     function UserAuth($email, $password) {
@@ -127,6 +140,36 @@
 
             return $func; 
         }
+    }
+
+    function Developer($type, $id) {
+
+        if($type == "Check") {
+            include_once('controller/UserController.php');
+
+            return isUserDeveloper($id);
+        }
+        else if ($type == "GET") {
+            include_once('controller/DeveloperController.php');
+            return getDeveloperId($id);
+        }
+    }
+
+    function DeveloperGames($id) {
+        include_once('controller/DeveloperController.php');
+
+        return getDeveloperGames($id);
+    }
+
+    function GameDeveloper($method, $id) {
+        include_once('controller/DeveloperController.php');
+
+        return getDeveloperNameFromId($id);
+
+        // if($method == "GET") {
+        //     return getDeveloperNamesAndId();
+        // }
+
     }
 
     function Games($method) {

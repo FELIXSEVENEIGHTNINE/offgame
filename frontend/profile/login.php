@@ -72,16 +72,31 @@
                         <p>Blog</p>
                     </div>
                 </a>
+
+                <a href="../recommendation/">
+                    <div class="button-link transition inactive-link">
+                        <p>Recommendation</p>
+                    </div>
+                </a>
             </div>
 
-            <div class="col-10" style="background-color: #454955; color: White; padding: 0px;">
-                <h2> Login </h2>
-                <form method='POST' action="login.php">
-                    Email: <input type='text' name='email'> <br>
-                    Password: <input type='password' name='password'> <br>
-                    <button type='submit' name='submit'> Submit </button>
-                </form>
-                <p>Don't have an account? <a href="register.php">Register</a> now!</p>
+            <div class="col-10" style="background-color: #454955; color: White; padding: 40px;">
+                <h1> Login </h1> <hr>
+                <div style="border: 0px solid; width: 50%; height: 50%; padding: 40px;">
+                    <form method='POST' action="login.php">
+                        <div>
+                            <label>Email </label>
+                            <input type='text' name='email'>
+                        </div>
+                        <div>
+                            <label>Password </label>
+                            <input type='password' name='password'>
+                        </div>
+
+                        <button type='submit' name='submit' class='btn btn-primary'> Submit </button>
+                    </form>
+                    <p>Don't have an account? <a href="register.php">Register</a> now!</p>
+                </div>
             </div>
 
         </div>

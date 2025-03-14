@@ -44,6 +44,12 @@
                         <p>Blog</p>
                     </div>
                 </a>
+
+                <a href="recommendation/">
+                    <div class="button-link transition inactive-link">
+                        <p>Recommendation</p>
+                    </div>
+                </a>
             </div>
             <div class="col-10">
                 <header>
@@ -212,5 +218,7 @@
         <div id="footer">
             hi
         </div>
+
+        <div style="border: 1px solid White; width: 100px; height: 100px; position: sticky; bottom: 0; left: 0;"></div>
     </body>
 </html>

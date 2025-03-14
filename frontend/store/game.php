@@ -1,9 +1,6 @@
 <?php
     //echo session_status();
     $id = $_GET['gameid'];
-
-    include_once('../api/api.php');
-    $result = GameId("GET",$id);
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +13,7 @@
         
         <link rel="stylesheet" href="../assets/css/index.css">
         <link rel="stylesheet" href="../assets/css/main.css">
-        <link rel="stylesheet" href="../assets/css/profile.css">
+        <link rel="stylesheet" href="../assets/css/game.css">
         <script src="../assets/js/index.js"></script>
     </head>
     <body>
@@ -52,18 +49,19 @@
                         <p>Blog</p>
                     </div>
                 </a>
+
+                <a href="../recommendation/">
+                    <div class="button-link transition inactive-link">
+                        <p>Recommendation</p>
+                    </div>
+                </a>
             </div>
 
-            <div class="col-10" style="background-color: #454955; color: White; padding: 0px;">
+            <div class="col-10" style="background-color: #454955; color: White; padding: 40px;">
                 <div class="row">
-                    <div class="col">
-                        <?php echo "<img src='.".$result['game_banner']."'>"?>
-                       <h1><?php  echo $result['game_name'];?></h1>
-                       <?php echo "<img src='.".$result['game_photo']."'>"?>
-                    </div>
-                    <div class="col">
-                       <p><?php echo $result['game_description'];?></p>
-                    </div>
+                    <?php
+                        include_once("../assets/php/getGameInfo.php");
+                    ?>
                 </div>
                 <div class="row">
                     <div class="col">

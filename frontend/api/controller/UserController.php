@@ -87,13 +87,35 @@
         }
     }
 
+    function getUserDetailById($type, $id) {
+        include('../api/config.php');
+
+        try {
+            $result = mysqli_query($conn, "SELECT * FROM users WHERE user_id='$id'");
+            $row = $result->fetch_assoc();
+            
+            if ($type == "email") {
+                return $row['email'];
+            }
+            if ($type == "password") {
+                return $row['password'];
+            }
+            if ($type == "username") {
+                return $row['username'];
+            }
+            
+        } catch (Exception $e) {
+            return "Error.";
+        }
+    }
+
     function addUser($array_info) {
         include('../api/config.php');
 
         //$user_id = $array_info[0];
-        $username = $array_info[0];
-        $password = $array_info[1];
-        $email = $array_info[2];
+        $email = $array_info[0];
+        $username = $array_info[1];
+        $password = $array_info[2];
 
         try {
             $result = mysqli_query($conn, "INSERT INTO users (username, password, email) VALUES ('$username', '$password', '$email')");
@@ -103,22 +125,30 @@
         }
     }
 
+    function isUserDeveloper($id) {
+        include('../api/config.php');
+
+        try {
+            $result = mysqli_query($conn, "SELECT * FROM developers WHERE user_id=$id");
+            return $result;
+        } catch (Exception $e) {
+            return "Error";
+        }
+    }
+
     function updateUser($array_info) {
         include('../api/config.php');
+
         $user_id = $array_info[0];
         $username = $array_info[1];
         $password = $array_info[2];
         $email = $array_info[3];
 
-        if($username == NULL) {
-            $username = getUserById($user_id, "username");
-        }
-
         try {
             $result = mysqli_query($conn, "UPDATE users SET username='$username', password='$password', email='$email' WHERE user_id=$user_id");
             return $result;
         } catch (Exception $e) {
-            return "Error";
+            return 0;
         }
 
         //UPDATE users SET password="password" WHERE

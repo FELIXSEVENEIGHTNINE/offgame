@@ -1,16 +1,21 @@
 .banner {
     height: 150px; 
-    background-color: White; 
-    padding-top: 50px; 
-    padding-left: 50px;
+    /* background-color: White;  */
+    padding-top: 20px; 
+    padding-left: 20px;
+
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
 
 }
 
 .username {
     color: Black;
+    color: White;
     padding-top: 8px;
     padding-left: 20px;
-    font-size: 20px;
+    font-size: 40px;
 }
 
 .main {
@@ -20,7 +25,18 @@
 }
 
 .profilepicture {
-    width:50px; 
-    height:50px; 
+    width:100px; 
+    height:100px; 
     background-color: Black;
+}
+
+    .profilepicture img {
+        width: 100%;
+    }
+
+.profile-main {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

@@ -8,7 +8,7 @@
         $auth = RegisterUser($email, $username, $password);
 
         if($auth == 1) {
-            header("Location: user/");
+            header("Location: user.php");
         }
         else {
             echo "No.";
@@ -63,17 +63,25 @@
                         <p>Blog</p>
                     </div>
                 </a>
+
+                <a href="../recommendation/">
+                    <div class="button-link transition inactive-link">
+                        <p>Recommendation</p>
+                    </div>
+                </a>
             </div>
 
-            <div class="col-10" style="background-color: #454955; color: White; padding: 0px;">
-                <h2> Register </h2>
-                <form method='POST'>
-                    Email: <input type='text' name='email'> <br>
-                    Username: <input type='text' name='username'> <br>
-                    Password: <input type='password' name='password'> <br>
-                    <button type='submit' name='submit'> Submit </button>
-                </form>
-                <p>Already have an account? <a href="login.php">Log in</a> instead!</p>
+            <div class="col-10" style="background-color: #454955; color: White; padding: 40px;">
+                <h1> Register </h1> <hr>
+                <div style="border: 1px solid; width: 50%; height: 50%; padding: 40px;">
+                    <form method='POST'>
+                        Email: <input type='text' name='email'> <br>
+                        Username: <input type='text' name='username'> <br>
+                        Password: <input type='password' name='password'> <br>
+                        <button type='submit' name='submit'> Submit </button>
+                    </form>
+                    <p>Already have an account? <a href="login.php">Log in</a> instead!</p>
+                </div>
             </div>
         </div>
 
