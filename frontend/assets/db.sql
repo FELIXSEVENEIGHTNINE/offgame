@@ -211,7 +211,7 @@ ALTER TABLE achievements ADD FOREIGN KEY (game_id) REFERENCES games(game_id);
 ALTER TABLE achievements ADD FOREIGN KEY (user_id) REFERENCES users(user_id);
 ALTER TABLE achievements ADD FOREIGN KEY (achievement_id) REFERENCES achievement_data(achieve_id);
 
-INSERT INTO achievements VALUES (1, 2, 1, 1);
-INSERT INTO achievements VALUES (2, 2, 1, 2);
-INSERT INTO achievements VALUES (3, 2, 1, 3);
-INSERT INTO achievements VALUES (4, 2, 1, 4);
+INSERT INTO achievements (game_id, user_id, achievement_id) VALUES (2, 1, 1);
+INSERT INTO achievements (game_id, user_id, achievement_id) VALUES (2, 1, 2);
+INSERT INTO achievements (game_id, user_id, achievement_id) VALUES (2, 1, 3);
+INSERT INTO achievements (game_id, user_id, achievement_id) VALUES (2, 1, 4);

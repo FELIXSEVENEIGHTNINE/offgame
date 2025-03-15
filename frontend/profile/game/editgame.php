@@ -1,10 +1,28 @@
 <?php
+    include_once('../api/api.php');
     //echo session_status();
-    $gameid = $_GET['gameid'];
     $userid = $_GET['id'];
 
-    include_once('../api/api.php');
-    
+    if(isset($_POST['submit'])) {
+        
+        if(($_POST['username']) == NULL) {
+            $username = UserDetail("username", $userid);
+        } else $username = $_POST['username'];
+
+        if(($_POST['password']) == NULL) {
+            $password = UserDetail("password", $userid);
+        } else $password = $_POST['password'];
+
+        if(($_POST['email']) == NULL) {
+            $email = UserDetail("email", $userid);
+        } else $email = $_POST['email'];
+        
+        $userinfo = array($userid, $username, $password, $email);
+        $edit = Users("PUT", $userinfo);
+
+        if ($edit == 1) echo "Edit Successful.";
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -17,14 +35,14 @@
         
         <link rel="stylesheet" href="../assets/css/index.css">
         <link rel="stylesheet" href="../assets/css/main.css">
-        <link rel="stylesheet" href="../assets/css/game.css">
+        <link rel="stylesheet" href="../assets/css/profile.css">
         <script src="../assets/js/index.js"></script>
     </head>
     <body>
         
         <div class="row">
             <div class="col-2">
-            <a href="..">
+                <a href="../">
                     <div class="homepage transition-short inactive-link" id="main" onmouseover="linkHover()" onmouseout="linkHoverOff()">
                         <img src="../assets/img/game_logo_2.png" id="link-image"> 
                     </div>
@@ -42,7 +60,7 @@
                     </div>
                 </a>
 
-                <a href="">
+                <a href="../">
                     <div class="button-link transition active-link">
                         <p>Profile</p>
                     </div>
@@ -61,21 +79,25 @@
                 </a>
             </div>
 
-            <div class="col-10" style="background-color: #454955; color: White; padding: 40px;">
-                <div class="row">
-                    <div class="col">
-                        <a href="user.php?id=<?php echo $userid ?>"><button>Back</button></a>
-                        <!-- <h1>Stuff</h1><hr> -->
-                        <h2> Your Options </h2><hr>
-                        <a href="game/editname.php?id=<?php echo $userid ?>"><button class="btn btn-primary">Edit Game Name</button></a>
-                        <a href="game/editdesc.php?id=<?php echo $userid ?>"><button class="btn btn-primary">Edit Game Description</button></a>
-                        <a href="game/editfilter.php?id=<?php echo $userid ?>"><button class="btn btn-primary">Edit Game Filters</button></a>
-                        <a href="logout.php"><button class="btn btn-primary">Log out</button></a>
-                    
-                        <!-- <h2>Game Retention</h2><hr>
-                        show stuff -->
+            <div class="col-10 main" style="padding:40px;">
+                <a href="user.php?id=<?php $userid ?>"><button class="btn btn-primary">Back </button></a>
+                <form method="POST">
+                    <div class="mb-3 mt-3">
+                        <label for="un" class="form-label">Change Username:</label>
+                        <input id="un" type="text" name="username" class="form-control" placeholder="<?php echo UserDetail("username", $userid); ?>">
                     </div>
-                </div>
+                    <div class="mb-3 mt-3">
+                        <label for="pw" class="form-label">Change Password:</label>
+                        <input id="pw" type="text" name="password" class="form-control" placeholder="<?php echo UserDetail("password", $userid); ?>">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="e" class="form-label">Change Email:</label>
+                        <input id="e" type="text" name="email" class="form-control" placeholder="<?php echo UserDetail("email", $userid); ?>">
+                    </div>
+
+                    <input type="submit" name="submit">
+                </form>
+                
             </div>
 
         </div>

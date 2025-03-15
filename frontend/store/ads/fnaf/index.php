@@ -1,3 +1,7 @@
+<?php
+    $id = 2;
+?>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
@@ -63,21 +67,11 @@
 
         <div class="col">
             <h2> Achievements: </h2>
-            <?php ?>
-            <h4 class="text-primary">Try Playing Dead<small class="text-body-secondary"> Beat the game in Easy mode.</small><h4>
-            <h4 class="text-danger">Poor Choice Career<small class="text-body-secondary"> Beat the game in Normal mode.</small><h4>
-            <h4 class="text-danger">Never Stood A Chance<small class="text-body-secondary"> Beat the game in Hard mode.</small><h4>
-            <h4 class="text-danger">Together, We Are FNAF<small class="text-body-secondary"> Beat the game in Expert mode.</small><h4>
-
-            <h4 class="text-danger">Give Gifts, Give Life<small class="text-body-secondary"> Unlock the merch page.</small><h4>
-            <h4 class="text-danger">Earlier That Night<small class="text-body-secondary"> Unlock the movies page.</small><h4>
-            <h4 class="text-danger">I'm Pretending<small class="text-body-secondary"> Unlock the books page.</small><h4>
-
-            <h4 class="text-danger">Hello, Hello<small class="text-body-secondary"> Listen to the Phone Guy.</small><h4>
-
-            <h4 class="text-danger">We Are Still Your Friends<small class="text-body-secondary"> Give Fredbear friends.</small><h4>
-            <h4 class="text-danger">Keep It Wound Up<small class="text-body-secondary"> Wind up the music box.</small><h4>
-            <h4 class="text-danger">ITS ME<small class="text-body-secondary"> Secret~</small><h4>
+            <?php 
+                include('../../../api/api.php');
+                $request = Achievements($id);
+                include_once('../../../assets/php/getAchievements.php') 
+            ?>
         </div>
     </div>
 
@@ -101,7 +95,8 @@
         </div>
 
         <div class="col">
-            
+            <h2> Rewards: </h2>
+            <a href="reward/rewards.zip" download><button>Download Reward</button></a>
         </div>
     </div>
 </div>
@@ -144,19 +139,19 @@
 
         if(difficulty == 1) {
             console.log(difficulty);
-            window.location.href = currentUrl + "game/easy.html";
+            window.location.href = currentUrl + "game/easy.php";
         }
         if(difficulty == 2) {
             console.log(difficulty);
-            window.location.href = currentUrl + "game/normal.html";
+            window.location.href = currentUrl + "game/normal.php";
         }
         if(difficulty == 3) {
             console.log(difficulty);
-            window.location.href = currentUrl + "game/hard.html";
+            window.location.href = currentUrl + "game/hard.php";
         }
         if(difficulty == 4) {
             console.log(difficulty);
-            window.location.href = currentUrl + "game/expert.html";
+            window.location.href = currentUrl + "game/expert.php";
         }
     }
 

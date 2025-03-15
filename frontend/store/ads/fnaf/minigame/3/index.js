@@ -277,7 +277,7 @@ function triggerJumpscare() {
     setTimeout(() => {
         console.log("Closing game...");
         document.body.removeChild(jumpscareGif); // Remove GIF
-        window.location.href = "gameover.html"; // Redirect to game over screen
+        window.location.href = "../../"; // Redirect to game over screen
     }, 2000);
 }
 

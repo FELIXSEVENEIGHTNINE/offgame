@@ -1,13 +1,6 @@
 <?php
     include_once('../api/api.php');
     //echo session_status();
-    $id = $_GET['id'];
-
-    if ($id == NULL) {
-        header("Location: index.php");
-    }
-
-    $info = Admin("GET", $id);
 ?>
 
 <!DOCTYPE html>
@@ -25,22 +18,12 @@
     </head>
     <body>
         <div class="container">
-            <a href="../">Home</a> &gt <a href="">Admin</a>
+            <a href="../">Go back home </a>
         </div>
         <div class="container">
-            <h2> Hello <?php echo $info['admin_username']?></h2>
+            <h2> Add Blog</h2><hr>
 
-            <h3>Functions</h3><hr>
-            <a href="editprofile.php"><button class="btn btn-primary">Edit Profile</button></a>
-            <a href="addblog.php"><button class="btn btn-primary">Add Blog</button></a>
-            <a href="editgame.php"><button class="btn btn-primary">Edit Game</button></a>
-            <a href="deletegame.php"><button class="btn btn-primary">Delete Game</button></a>
-
-
-            <h3>List of Advertised Games</h3><hr>
-
-            <h3>List of Games</h3><hr>
-
+            
 
         </div>
 

@@ -1,17 +1,26 @@
 <?php
+    // include_once('../api/api.php');
+    // //echo session_status();
+    // $userid = $_GET['id'];
+
+    // if($userid == NULL) {
+    //     header("Location: index.php");
+    // }
+
+    // $userArray = UserId("GET", $userid);
+
+    // if(Developer("Check", $userid)) {
+    //     $devid = Developer("GET", $userid);
+    //     $gamesOwned = DeveloperGames($devid);
+    // }
+
     if(isset($_POST['submit'])) {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $game_id = $_POST['game_id'];
+        $user_id = $_POST['user_id'];
+        $achievement_id = $_POST['achievement_id'];
 
         include_once('../api/api.php');
-        $auth = UserAuth($email, $password);
-
-        if($auth == 1) {
-            //set($_SESSION['email']);
-            // $_SESSION['email'];
-            $id = LogInUser($email);
-            header("Location: user.php?id=$id");
-        }
+        $auth = Achievement("PUT", $game_id, $user_id, $achievement_id);
 
         // include_once('../api/config.php');
         //$result = mysqli_query($conn, "SELECT * FROM users WHERE email='$em'");
@@ -37,6 +46,7 @@
         <link rel="stylesheet" href="../assets/css/index.css">
         <link rel="stylesheet" href="../assets/css/main.css">
         <link rel="stylesheet" href="../assets/css/profile.css">
+        <link rel="stylesheet" href="../assets/css/login.css">
         <script src="../assets/js/index.js"></script>
     </head>
     <body>
@@ -83,16 +93,21 @@
             <div class="col-10" style="background-color: #454955; color: White; padding: 40px;">
                 <h1> Login </h1> <hr>
                 <div style="border: 0px solid; width: 50%; height: 50%; padding: 40px;">
-                    <form method='POST' action="login.php">
-                        <div>
-                            <label for="email" class="form-label">Email </label>
-                            <input type='text' name='email' id="email" class="form-control">
+                    <form method='POST'>
+                        <div hidden>
+                            <div>
+                                <label>Email </label>
+                                <input type='text' name='user_id' value='1'>
+                            </div>
+                            <div>
+                                <label>Password </label>
+                                <input type='password' name='game_id' value='1'>
+                            </div>
+                            <div>
+                                <label>Password </label>
+                                <input type='password' name='achievement_id' value='5'>
+                            </div>
                         </div>
-                        <div>
-                            <label for="password" class="form-label">Password </label>
-                            <input type='password' name='password' id="password" class="form-control">
-                        </div>
-
                         <button type='submit' name='submit' class='btn btn-primary'> Submit </button>
                     </form>
                     <p>Don't have an account? <a href="register.php">Register</a> now!</p>

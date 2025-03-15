@@ -722,6 +722,8 @@ function nightTimer() {
         clearInterval(freddy_lights_out_interval)
         freddy_lights_out_interval = null
 
+        // submitAchievement();
+
     } else {
         document.getElementById('time').innerHTML = `${hour} AM`;
     }
@@ -1340,6 +1342,11 @@ function foxyJumpscare(img) {
         document.getElementById('camera_button').style.visibility = 'hidden';
         document.getElementById('retry').style.visibility = 'visible';
     }
+}
+
+function submitAchievement() {
+    var frm = document.getElementById("achievementform");
+    frm.submit();
 }
 
 

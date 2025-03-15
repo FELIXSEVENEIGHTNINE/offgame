@@ -11,11 +11,15 @@
         }
     }
 
-    function addBlog() {
+    function addBlog($blogarray) {
         include('../api/config.php');
 
+        $title = $blogarray[0];
+        $date = $blogarray[1];
+        $content = $blogarray[2];
+
         try {
-            $result = mysqli_query($conn, "INSERT FROM blog VALUES ");
+            $result = mysqli_query($conn, "INSERT INTO blog (blog_date, blog_title, blog_text) VALUES ('$date', '$title', '$content')");
             return $result;
         } catch (Exception $e) {
             return "Error";

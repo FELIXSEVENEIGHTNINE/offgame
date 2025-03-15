@@ -686,13 +686,14 @@ function cam7() {
 function start() {
     bonnie_interval = setInterval(function() { bonnieBehavior() }, bonnie_initial)
     batteryStart()
-    time_interval = setInterval(function() { nightTimer() }, 60000)
+    time_interval = setInterval(function() { nightTimer() }, 1000)
 }
 
 function nightTimer() {
     hour++
     // console.log(hour)
     if (hour == 6) {
+        submitAchievement();
         document.getElementById('time').innerHTML = `${hour} AM`;
         clearInterval(bonnie_interval)
         bonnie_interval == null
@@ -718,6 +719,8 @@ function nightTimer() {
         lights_out_interval = null
         clearInterval(freddy_lights_out_interval)
         freddy_lights_out_interval = null
+
+        
 
     } else {
         document.getElementById('time').innerHTML = `${hour} AM`;
@@ -1337,6 +1340,11 @@ function foxyJumpscare(img) {
         document.getElementById('camera_button').style.visibility = 'hidden';
         document.getElementById('retry').style.visibility = 'visible';
     }
+}
+
+function submitAchievement() {
+    // document.getElementById("achievementform").submit();
+    document.getElementById("submit").click();
 }
 
 

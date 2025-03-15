@@ -4,7 +4,8 @@
     $userid = $_GET['id'];
 
     if($userid == NULL) {
-        header("Location: index.php");
+        // header("Location: index.php");
+        header("Refresh:0.1; url=index.php");
     }
 
     $userArray = UserId("GET", $userid);
@@ -94,7 +95,7 @@
                             <div class="d-inline-flex">
                                 <?php 
                                     
-                                    echo "<a href='game.php?gameid=".$gamesOwned['game_id']."'><div>";
+                                    echo "<a href='game.php?gameid=".$gamesOwned['game_id']."&id=".$userid."'><div>";
                                     echo "<img src='../assets/img/".$gamesOwned['game_logo'].".jpg' style='width:10%'>";
                                     echo "<p style='color: White;'>".$gamesOwned['game_name']."</p></div></a>";
                                     // echo $gamesOwned['developer_name']

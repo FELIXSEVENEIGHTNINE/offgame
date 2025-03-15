@@ -226,7 +226,7 @@
         
     }
 
-    function Blog($method) {
+    function Blog($method, $blogarray) {
         include_once('controller/BlogController.php');
 
         if ($method == "GET") {
@@ -237,6 +237,41 @@
             }
             return $func; 
         }
+
+        if ($method == "PUT") {
+            $func = addBlog($blogarray);
+            if ($func == "Error") {
+                echo "Error.";
+                return;
+            }
+            return $func; 
+        }
+    }
+
+    function Achievement($method, $game_id, $user_id, $achievement_id) {
+        include_once('controller/AchievementController.php');
+        
+        if($method == "PUT") {
+            $info = array($game_id, $user_id, $achievement_id);
+            $func = addAchievement($info);
+            if($func == "Error") {
+                echo "Error.";
+                return;
+            }
+            return $func;
+        }
+
+        // if($register != 1) {
+        //     return 0;
+        // }
+
+        // return 1;
+    }
+
+    function Achievements($id) {
+        include_once('controller/AchievementController.php');
+
+        return getAchievements($id);
     }
 
 
