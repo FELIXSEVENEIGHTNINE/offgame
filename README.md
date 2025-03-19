@@ -9,3 +9,10 @@ this megaproject is my favorite one as it renovates an existing site and adds ma
 - Start Apache and MySQL in XAMPP.
 - Go to phpmyadmin, open a file explorer and go to /frontend/assets/sql.db and paste all the stuff in phpmyadmin to create the schema and tables.
 - Type localhost in your browser.
+
+## Dependencies
+There are three major modules: the Chatbot, the Recommendation System, and the Website itself.
+
+The chatbot requires Ollama and FastAPI to run.
+The recommendation system requires Flask to run.
+
