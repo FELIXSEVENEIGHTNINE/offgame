@@ -93,7 +93,8 @@
 
 #door_left {
   position: absolute;
-  left: 4%
+  left: 4%;
+  width: 14%;
 }
 
 #door_left_buttons {
@@ -106,7 +107,8 @@
 
 #door_right {
   position: absolute;
-  left: 78%;
+  left: 80%;
+  width: 16%;
 }
 
 #door_right_buttons {
@@ -128,11 +130,15 @@
   position: absolute;
   left: 65%;
   top: 35%;
+  /* left: 64%; */
+  /* top: 30%; */
+  /* width: 30%; */
 }
 
 #camera_animation {
   position: absolute;
   left: 5%;
+  /* width: 100%; */
 }
 
 #cameras {

@@ -1,6 +1,6 @@
 -------------------------------------------
 -- USERS
--------------------------------------------
+------------------------------------------- done
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
@@ -16,7 +16,7 @@ INSERT INTO users VALUES (1, "jeb12", "jebjebjeb", "jeb12@gmail.com", "", "");
 
 -------------------------------------------
 -- ADMINS
--------------------------------------------
+------------------------------------------- done
 DROP TABLE IF EXISTS admin;
 
 CREATE TABLE admin (
@@ -34,7 +34,7 @@ INSERT INTO admin VALUES ("123ASD456FGH", 2, 1, "yes", "test2");
 
 -------------------------------------------
 -- BLOG 
--------------------------------------------
+------------------------------------------- done
 DROP TABLE IF EXISTS blog;
 
 CREATE TABLE blog (
@@ -66,13 +66,12 @@ CREATE TABLE credit (
     credit_id INT(12) AUTO_INCREMENT PRIMARY KEY,
     amount INT(24) DEFAULT NULL,
     card_number VARCHAR(255) DEFAULT NULL,
-
-    user_id INT(12) DEFAULT NULL,
+    user_id INT(12)
 );
 
 ALTER TABLE credit ADD FOREIGN KEY (user_id) REFERENCES users(user_id);
 
-INSERT INTO developers VALUES (1, "1200", "", 1);
+INSERT INTO developers (amount, user_id)VALUES (1, 1);
 
 -------------------------------------------
 -- CART

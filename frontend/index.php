@@ -14,7 +14,8 @@
     <body>
         
         <div class="row">
-            <div class="col-2" id="best-header">
+            <!-- <div class="col-sm-2" id="best-header"> -->
+            <div class="col-sm-2">
                 <a href="">
                     <div class="homepage transition-short" id="main" onmouseover="mainHover()" onmouseout="mainHoverOff()">
                         <img src="assets/img/game_logo.png" id="main-image"> 
@@ -45,13 +46,13 @@
                     </div>
                 </a>
 
-                <a href="recommendation/">
+                <a href="../chatbot/">
                     <div class="button-link transition inactive-link">
-                        <p>Recommendation</p>
+                        <p>Chatbot</p>
                     </div>
                 </a>
             </div>
-            <div class="col-10">
+            <div class="col-sm-10">
                 <header>
                     <section class="not-opposite">
                         <div class="row">

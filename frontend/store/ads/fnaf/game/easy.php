@@ -62,7 +62,7 @@
             </map>
 
             <div class="camera_flip">
-                <img id="camera_animation" src="">
+                <img id="camera_animation" src="" onerror="null">
                 <img id="camera_button" src="FNAF Assets/UI/buttons/camera_flip.png" onclick="cameraFlipInterval()">
             </div>
             <div> 

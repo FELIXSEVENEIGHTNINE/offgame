@@ -686,7 +686,7 @@ function cam7() {
 function start() {
     bonnie_interval = setInterval(function() { bonnieBehavior() }, bonnie_initial)
     batteryStart()
-    time_interval = setInterval(function() { nightTimer() }, 1000)
+    time_interval = setInterval(function() { nightTimer() }, 60000)
 }
 
 function nightTimer() {

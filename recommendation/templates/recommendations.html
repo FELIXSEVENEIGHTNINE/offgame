@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Games</title>
+</head>
+<body>
+    <h1>Recommended Games</h1>
+    
+    {% if games.empty %}
+        <p>No games match your selection.</p>
+    {% else %}
+        <ul>
+        {% for index, game in games.iterrows() %}
+            <li>
+                <strong>{{ game['name'] }}</strong><br>
+                Genres: {{ game['genres'] }}<br>
+                Categories: {{ game['categories'] }}<br>
+                Recommendation Score: {{ game['recommend'] }}<br><br>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <a href="/">Back to Home</a>
+</body>
+</html>

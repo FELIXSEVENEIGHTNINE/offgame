@@ -54,9 +54,15 @@
                     </div>
                 </a>
 
-                <a href="../recommendation/">
+                <!-- <a href="../recommendation/">
                     <div class="button-link transition inactive-link">
                         <p>Recommendation</p>
+                    </div>
+                </a> -->
+
+                <a href="../../chatbot/">
+                    <div class="button-link transition inactive-link">
+                        <p>Chatbot</p>
                     </div>
                 </a>
             </div>

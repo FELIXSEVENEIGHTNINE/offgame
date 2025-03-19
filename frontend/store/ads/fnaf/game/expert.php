@@ -90,7 +90,7 @@
                 <input type='text' name='user_id' value='1'>
                 <input type='password' name='game_id' value='1'>
                 <input type='password' name='achievement_id' value='4'>
-                <button type='submit' name='submit' class='btn btn-primary'> Submit </button>
+                <button type='submit' name='submit' class='btn btn-primary' hidden> Submit </button>
             </div>
         </form>
     </body>

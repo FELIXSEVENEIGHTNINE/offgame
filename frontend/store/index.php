@@ -48,14 +48,14 @@
                     </div>
                 </a>
 
-                <a href="../recommendation/">
+                <a href="../../chatbot/">
                     <div class="button-link transition inactive-link">
-                        <p>Recommendation</p>
+                        <p>Chatbot</p>
                     </div>
                 </a>
             </div>
 
-            <div class="col-8" style="background-color: #454955; padding: 50px;">
+            <div class="col-10" style="background-color: #454955; padding: 50px;">
                 <header>
                     <h1> Adversited Games </h1>
                     <hr>
@@ -73,16 +73,23 @@
                         include_once('../assets/php/getGames.php');
                     ?>
                 </header>
+                <!-- <header>
+                    <h1> Recommendations </h1>
+                    <hr>
+                    <div id="recomms"></div>
+                </header> -->
                 
             </div>
 
-            <div class="col-2" style="background-color: #394053; color: White;">
+            <!-- <div class="col-2" style="background-color: #394053; color: White;">
                 <?php
-                    include("../assets/php/getTags.php");
-                    include("../assets/php/getGenres.php");
-                    include("../assets/php/getCategories.php");
+                    //include("../assets/php/getTags.php");
+                    //include("../assets/php/getGenres.php");
+                    //include("../assets/php/getCategories.php");
+                    
                 ?>
-            </div>
+                <iframe src="https://127.0.0.1:5001/recommend" height="100%"></iframe>
+            </div> -->
 
         </div>
         <div id="footer">
