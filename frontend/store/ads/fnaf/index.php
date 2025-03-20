@@ -39,7 +39,7 @@
 
 <div class="container" style="margin-top: 2%;">
     <div class="row">
-        <div class="col">
+        <div class="col-sm-6">
             <h2> Choose Difficulty: </h2>
                 <div class="form-check form-check-inline">
                     <label class="form-check-label" for="inlineRadio1"> Easy </label>
@@ -65,7 +65,7 @@
                 <button class="btn btn-outline-primary" onclick="play()"> Play </button>
         </div>
 
-        <div class="col">
+        <div class="col-sm-6">
             <h2> Achievements: </h2>
             <?php 
                 include('../../../api/api.php');
@@ -76,7 +76,7 @@
     </div>
 
     <div class="row">
-        <div class="col">
+        <div class="col-sm-6">
             <h2> Minigames Unlocked: </h2>
                 <div class="form-check form-check">
                     <label class="form-check-label" for="gm1"> Minigame 1 </label>
@@ -94,7 +94,7 @@
                 <button class="btn btn-outline-primary" onclick="miniplay()"> Play </button>
         </div>
 
-        <div class="col">
+        <div class="col-sm-6">
             <h2> Rewards: </h2>
             <a href="reward/rewards.zip" download><button>Download Reward</button></a>
         </div>

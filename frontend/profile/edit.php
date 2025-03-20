@@ -16,11 +16,14 @@
         if(($_POST['email']) == NULL) {
             $email = UserDetail("email", $userid);
         } else $email = $_POST['email'];
+
+        // $image= $_POST['image'];
         
         $userinfo = array($userid, $username, $password, $email);
         $edit = Users("PUT", $userinfo);
 
         if ($edit == 1) echo "Edit Successful.";
+        header("Location: user.php?id=$userid#mainstuff");
     }
 
 ?>
@@ -41,7 +44,7 @@
     <body>
         
         <div class="row">
-            <div class="col-2">
+            <div class="col-sm-2">
                 <a href="../">
                     <div class="homepage transition-short inactive-link" id="main" onmouseover="linkHover()" onmouseout="linkHoverOff()">
                         <img src="../assets/img/game_logo_2.png" id="link-image"> 
@@ -85,8 +88,8 @@
                 </a>
             </div>
 
-            <div class="col-10 main" style="padding:40px;">
-                <a href="user.php?id=<?php $userid ?>"><button class="btn btn-primary">Back </button></a>
+            <div class="col-sm-10 main" style="padding:40px;" id="mainedit">
+                <a href="user.php?id=<?php echo $userid ?>"><button class="btn btn-primary">Back </button></a>
                 <form method="POST">
                     <div class="mb-3 mt-3">
                         <label for="un" class="form-label">Change Username:</label>
@@ -100,6 +103,10 @@
                         <label for="e" class="form-label">Change Email:</label>
                         <input id="e" type="text" name="email" class="form-control" placeholder="<?php echo UserDetail("email", $userid); ?>">
                     </div>
+                    <!-- <div class="mb-3 mt-3">
+                        <label for="pfp" class="form-label">Change Email:</label>
+                        <input id="pfp" type="file" name="pfp" class="form-control" placeholder="<?php echo UserDetail("profile_picture", $userid); ?>">
+                    </div> -->
 
                     <input type="submit" name="submit">
                 </form>

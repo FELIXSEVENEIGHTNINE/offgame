@@ -9,10 +9,11 @@ CREATE TABLE users (
     password VARCHAR(500) NOT NULL,
     email VARCHAR(150) DEFAULT NULL,
     banner_name VARCHAR(500) DEFAULT NULL,
-    profile_picture_name VARCHAR(500) DEFAULT NULL
+    profile_picture_name VARCHAR(500) DEFAULT NULL,
+    auth VARCHAR(20) DEFAULT NULL
 );
 
-INSERT INTO users VALUES (1, "jeb12", "jebjebjeb", "jeb12@gmail.com", "", "");
+INSERT INTO users VALUES (1, "jeb12", "jebjebjeb", "jeb12@gmail.com", "", "", "");
 
 -------------------------------------------
 -- ADMINS
@@ -59,8 +60,8 @@ INSERT INTO blog (blog_date, blog_title, blog_text) VALUES ("December 12, 2023",
 
 -------------------------------------------
 -- CREDIT
--------------------------------------------
-DROP TABLE credit;
+------------------------------------------- done
+DROP TABLE IF EXISTS credit;
 
 CREATE TABLE credit (
     credit_id INT(12) AUTO_INCREMENT PRIMARY KEY,
@@ -71,19 +72,25 @@ CREATE TABLE credit (
 
 ALTER TABLE credit ADD FOREIGN KEY (user_id) REFERENCES users(user_id);
 
-INSERT INTO developers (amount, user_id)VALUES (1, 1);
+INSERT INTO credit (amount, user_id)VALUES (1000, 1);
 
 -------------------------------------------
 -- CART
--------------------------------------------
+------------------------------------------- done
+DROP TABLE IF EXISTS cart;
+
 CREATE TABLE cart (
     cart_id INT(12) PRIMARY KEY,
-    game_id INT(24)
+    game_id INT(24),
+    user_id INT(12)
 );
+
+ALTER TABLE cart ADD FOREIGN KEY (game_id) REFERENCES games(game_id);
+ALTER TABLE cart ADD FOREIGN KEY (user_id) REFERENCES users(user_id);
 
 -------------------------------------------
 -- DEVELOPERS
--------------------------------------------
+------------------------------------------- done
 DROP TABLE IF EXISTS developers;
 
 CREATE TABLE developers (
@@ -95,8 +102,10 @@ CREATE TABLE developers (
 
 ALTER TABLE developers ADD FOREIGN KEY (user_id) REFERENCES users(user_id);
 
+INSERT INTO developers (developer_id, developer_name) VALUES (0, "Unknown");
 INSERT INTO developers (developer_name) VALUES ("LocalThunk");
 INSERT INTO developers (developer_name, user_id) VALUES ("Scott Cawthon", 1);
+INSERT INTO developers (developer_name) VALUES ("Supercell");
 
 -------------------------------------------
 -- POST
@@ -115,7 +124,7 @@ INSERT INTO post VALUES (1, "First post", "Hello", 1);
 
 -------------------------------------------
 -- GAMES 
--------------------------------------------
+------------------------------------------- done
 DROP TABLE IF EXISTS games;
 
 CREATE TABLE games (
@@ -126,20 +135,28 @@ CREATE TABLE games (
     game_banner VARCHAR(255) DEFAULT NULL,
     game_photo VARCHAR(255) DEFAULT NULL,
     game_ad INT(1) DEFAULT NULL,
+    price DECIMAL(10,2) DEFAULT NULL,
     developer_id int(12),
     ad_name VARCHAR(255) DEFAULT NULL
 );
 
 ALTER TABLE games ADD FOREIGN KEY (developer_id) REFERENCES developers(developer_id);
 
-INSERT INTO games VALUES (1, "Balatro", "gambling", "balatro", "", "", 0, 1, "");
-INSERT INTO games VALUES (2, "Five Nights at Freddy's", "scary", "fnaf", "fnaf_banner", "", 1, 2, "fnaf");
-INSERT INTO games VALUES (3, "Clash Royale", "broken", "clashroyale", "", "",  0, 2, "");
+INSERT INTO games VALUES (1, "Balatro", "gambling", "balatro", "", "", 0, 14.99,  1, "");
+INSERT INTO games VALUES (2, "Five Nights at Freddy's", "scary", "fnaf", "fnaf_banner", "", 1, 4.99 2, "fnaf");
+INSERT INTO games VALUES (3, "Clash Royale", "broken", "clashroyale", "", "",  0, 0.0, 0, "");
+INSERT INTO games VALUES (4, "Emily is Away", "i love emily", "emilyisaway", "", "",  0, 0.0, 0, "");
+INSERT INTO games VALUES (5, "Sort the Court!", "joker", "sortthecourt", "", "",  0, 0.0, 0, "");
+INSERT INTO games VALUES (6, "Andromeda Six", "", "andromedasix", "", "",  0, 0.0, 0, "");
+INSERT INTO games VALUES (7, "Valorant", "", "valorant", "", "",  0, 0.0, 0, "");
+INSERT INTO games VALUES (8, "Hollow Knight", "", "hollow_knight", "", "",  0, 7.49, 0, "");
+INSERT INTO games VALUES (9, "The Witcher 3: Wild Hunt", "", "witcher_3", "", "",  0, 7.99, 0, "");
+INSERT INTO games VALUES (10, "Far Cry 3", "", "farcry3", "", "",  0, 19.99, 0, "");
 
 
 -------------------------------------------
 -- GENRES
--------------------------------------------
+------------------------------------------- done
 
 DROP TABLE IF EXISTS genres;
 
@@ -155,7 +172,7 @@ INSERT INTO genres VALUES (2, "Horror");
 
 -------------------------------------------
 -- GAME CATEGORY
--------------------------------------------
+------------------------------------------- done
 DROP TABLE IF EXISTS game_category;
 
 CREATE TABLE game_category (
@@ -172,8 +189,8 @@ INSERT INTO game_category (game_id, genre_id) VALUES (2, 1);
 INSERT INTO game_category (game_id, genre_id) VALUES (2, 2);
 
 -------------------------------------------
--- ACHIEVEMENTS
--------------------------------------------
+-- ACHIEVEMENT DATA
+------------------------------------------- done
 DROP TABLE IF EXISTS achievement_data;
 
 CREATE TABLE achievement_data (
@@ -195,7 +212,7 @@ INSERT INTO achievement_data VALUES (11, "ITS ME");
 
 -------------------------------------------
 -- ACHIEVEMENT
--------------------------------------------
+------------------------------------------- dne
 DROP TABLE IF EXISTS achievements;
 
 CREATE TABLE achievements (
@@ -214,3 +231,20 @@ INSERT INTO achievements (game_id, user_id, achievement_id) VALUES (2, 1, 1);
 INSERT INTO achievements (game_id, user_id, achievement_id) VALUES (2, 1, 2);
 INSERT INTO achievements (game_id, user_id, achievement_id) VALUES (2, 1, 3);
 INSERT INTO achievements (game_id, user_id, achievement_id) VALUES (2, 1, 4);
+
+-------------------------------------------
+-- USER FOLLOWED GAMES
+-------------------------------------------
+DROP TABLE IF EXISTS following_game;
+
+CREATE TABLE following_game (
+    follow_id INT(12) AUTO_INCREMENT PRIMARY KEY,
+    game_id INT(24),
+    user_id INT(12)
+);
+
+ALTER TABLE following_game ADD FOREIGN KEY (game_id) REFERENCES games(game_id);
+ALTER TABLE following_game ADD FOREIGN KEY (user_id) REFERENCES users(user_id);
+
+INSERT INTO following_game (game_id, user_id) VALUES (2, 1);
+INSERT INTO following_game (game_id, user_id) VALUES (2, 6);

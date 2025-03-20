@@ -93,5 +93,22 @@
                 <button type='submit' name='submit' class='btn btn-primary' hidden> Submit </button>
             </div>
         </form>
+        <script>
+                var http = new XMLHttpRequest();
+                http.open("POST", "formula", true);
+                http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                var params = "search=" + <<get search value>>; // probably use document.getElementById(...).value
+                http.send(params);
+                http.onload = function() {
+                    alert(http.responseText);
+                }
+
+                document.addEventListener("keydown", function(event) {
+                    const key = event.key; // Or const {key} = event; in ES6+
+                    if (key === "Escape") {
+                        window.history.back();
+                    }
+                });
+            </script>
     </body>
 </html>

@@ -27,7 +27,8 @@ def recommend():
         recommended_games = recommend_games(selected_genres, selected_category)
     except:
         available_genres = get_available_genres()
-        return render_template('index.html', genres=available_genres)
+        # return render_template('index.html', genres=available_genres)
+        return null
 
     return render_template('recommendations.html', games=recommended_games)
 

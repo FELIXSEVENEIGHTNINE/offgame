@@ -103,6 +103,9 @@
             if ($type == "username") {
                 return $row['username'];
             }
+            if ($type == "profile_picture") {
+                return $row['profile_picture'];
+            }
             
         } catch (Exception $e) {
             return "Error.";
@@ -130,6 +133,44 @@
 
         try {
             $result = mysqli_query($conn, "SELECT * FROM developers WHERE user_id=$id");
+
+            if(empty($result)) {
+                return 0;
+            }
+
+            return $result;
+        } catch (Exception $e) {
+            return "Error";
+        }
+    }
+
+    function getUserFollowGame($id) {
+        include('../api/config.php');
+
+        try {
+            $result = mysqli_query($conn, "SELECT * FROM following_game WHERE user_id=$id");
+
+            if(empty($result)) {
+                return 0;
+            }
+
+            return $result;
+        } catch (Exception $e) {
+            return "Error";
+        }
+    }
+
+    function getUserAuthKey($id) {
+        include('../api/config.php');
+
+        try {
+            $result = mysqli_query($conn, "SELECT authkey FROM users WHERE user_id=$id");
+            // if(empty($result)) {
+            //     return 0;
+            // }
+            // $row = $result->fetch_assoc();
+
+
             return $result;
         } catch (Exception $e) {
             return "Error";

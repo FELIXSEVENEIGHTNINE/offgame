@@ -1,4 +1,5 @@
 <?php
+
     if(isset($_POST['submit'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -7,22 +8,11 @@
         $auth = UserAuth($email, $password);
 
         if($auth == 1) {
-            //set($_SESSION['email']);
-            // $_SESSION['email'];
             $id = LogInUser($email);
             header("Location: user.php?id=$id");
         }
 
-        // include_once('../api/config.php');
-        //$result = mysqli_query($conn, "SELECT * FROM users WHERE email='$em'");
-        //$row = $result->fetch_assoc();
-
-        // if($row['password'] == $password) {
-        //     header("Location: user/");
-        // }
     }
-
-    //echo session_status();
 
 ?>
 
@@ -42,7 +32,7 @@
     <body>
         
         <div class="row">
-            <div class="col-2">
+            <div class="col-sm-2">
                 <a href="..">
                     <div class="homepage transition-short inactive-link" id="main" onmouseover="linkHover()" onmouseout="linkHoverOff()">
                         <img src="../assets/img/game_logo_2.png" id="link-image"> 
@@ -86,9 +76,9 @@
                 </a>
             </div>
 
-            <div class="col-10" style="background-color: #454955; color: White; padding: 40px;">
+            <div class="col-sm-10" style="background-color: #454955; color: White; padding: 40px;">
                 <h1> Login </h1> <hr>
-                <div style="border: 0px solid; width: 50%; height: 50%; padding: 40px;">
+                <div style="border: 0px solid; width: 100%; height: 50%;">
                     <form method='POST' action="login.php">
                         <div>
                             <label for="email" class="form-label">Email </label>

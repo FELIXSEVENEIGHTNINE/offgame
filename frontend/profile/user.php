@@ -3,17 +3,34 @@
     //echo session_status();
     $userid = $_GET['id'];
 
-    if($userid == NULL) {
+    if($userid == NULL || empty($userid)) {
         // header("Location: index.php");
         header("Refresh:0.1; url=index.php");
     }
 
+    $authkey = "123ASD123ASD";
+
+    // if(!(UserAuthKey("CHECK", $userid))) {
+        if(UserAuthKey("CHECK", $userid)) {
+        echo UserAuthKey("CHECK", $userid);
+        header("Refresh:0; url=index.php");
+    }
+
     $userArray = UserId("GET", $userid);
 
+    $isDev;
     if(Developer("Check", $userid)) {
         $devid = Developer("GET", $userid);
         $gamesOwned = DeveloperGames($devid);
+        $isDev = 1;
     }
+    else {
+        return;
+        $isDev = 0;
+    }
+
+    $followed = UserFollow("Game", $userid);
+
 
 ?>
 
@@ -33,7 +50,7 @@
     <body>
         
         <div class="row">
-            <div class="col-2">
+            <div class="col-sm-2">
                 <a href="../">
                     <div class="homepage transition-short inactive-link" id="main" onmouseover="linkHover()" onmouseout="linkHoverOff()">
                         <img src="../assets/img/game_logo_2.png" id="link-image"> 
@@ -77,50 +94,57 @@
                 </a>
             </div>
 
-            <div class="col-10 main">
+            <div class="col-sm-10 main" id="mainstuff">
                 <div class="row">
-                    <div class="col-10">
+                    <div class="col">
                         <div class='container-fluid banner' style="background-image:url('../assets/img/<?php echo $userArray['banner_name']?>.png')">
                             <div class="d-inline-flex">
-                                <div class="profilepicture"><img src="../assets/img/<?php echo $userArray['profile_picture_name']?>.png" style=""></div> 
+                                <div class="profilepicture">
+                                    <?php 
+                                        if ($userArray['profile_picture_name'] == NULL) $pfp = "defaultpfp";
+                                        else $pfp = $userArray['profile_picture_name'];
+                                    ?>
+                                    <img src="../assets/img/<?php echo $pfp ?>.png" style="">
+                                </div> 
                                 <p class="username"><?php echo $userArray['username'] ?></p> 
                             </div>
                         </div>
                     </div>
-                    <div class="col-2">
-                        <h2>Options</h2>
-                        <a href="edit.php?id=<?php echo $userid ?>"><button class="btn btn-primary">Edit Profile</button></a>
-                        <a href="logout.php"><button class="btn btn-primary">Log out</button></a>
-                    </div>
                 </div>
 
                 <div class="row profile-main">
-                    <div class="col-12">
-                        <h1>Published</h1> <hr>
-                        <div class="container-fluid">
-                            <div class="d-inline-flex">
-                                <?php 
-                                    
+                    <div class="col-sm-4">
+                        <h1>Posts</h1> <hr>
+                    </div>
+                    <div class="col-sm-4">
+                    <?php
+                        if($isDev > 0) {
+                            echo "<h1>Published Games</h1> <hr>";
+                            echo "<div class='container-fluid'>";
+                                echo "<div class='d-inline-flex'>";
                                     echo "<a href='game.php?gameid=".$gamesOwned['game_id']."&id=".$userid."'><div>";
-                                    echo "<img src='../assets/img/".$gamesOwned['game_logo'].".jpg' style='width:10%'>";
+                                    echo "<img src='../assets/img/".$gamesOwned['game_logo'].".jpg' style='width:40%'>";
                                     echo "<p style='color: White;'>".$gamesOwned['game_name']."</p></div></a>";
-                                    // echo $gamesOwned['developer_name']
-                                ?>
-                            </div>
-                        </div>
+                                    // echo $gamesOwned['developer_name']    
+                                echo "</div>";
+                            echo "</div>";
+                        }
 
-                        <h1>Following</h1> <hr>
-                        <div class="container-fluid">
-                            <div class="d-inline-flex">
-                                <?php 
-                                    
-                                    echo "<a href='game.php?gameid=".$gamesOwned['game_id']."'><div>";
-                                    echo "<img src='../assets/img/".$gamesOwned['game_logo'].".jpg' style='width:10%'>";
-                                    echo "<p style='color: White;'>".$gamesOwned['game_name']."</p></div></a>";
-                                    // echo $gamesOwned['developer_name']
-                                ?>
-                            </div>
-                        </div>
+                        if(empty($followed)) {
+                            include_once("../../assets/php/getFollowedGames");
+                        }
+                    ?>
+                    </div>
+                    <div class="col-sm-4">
+                        <h1>Options</h1> <hr>
+                        <h3>Profile</h3><hr>
+                        <a href="edit.php?id=<?php echo $userid ?>#mainedit"><button class="btn btn-primary">Edit Profile</button></a>
+                        <a href="logout.php"><button class="btn btn-primary">Log out</button></a>
+                        <h3>Games</h3><hr>
+                        <a href="cart.php?id=<?php echo $userid ?>"><button class="btn btn-primary">View Cart</button></a>
+                        <a href="wishlist.php?id=<?php echo $userid ?>"><button class="btn btn-primary">View Wishlist</button></a>
+                        <h3>Seller</h3><hr>
+                        <a href="game/add.php?id=<?php echo $userid ?>"><button class="btn btn-primary">Add Game</button></a>
                     </div>
                 </div>
             </div>

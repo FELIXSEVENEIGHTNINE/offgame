@@ -68,17 +68,20 @@
             </div>
 
             <div class="col-sm-10" style="background-color: #454955; color: White; padding: 40px;">
-                <h2> Chatbot </h2>
-                <div id="chatbot" style="white-space:pre-line; overflow-y:auto; height:500px; text-align: right;"></div>
+                <h1> Chatbot </h1>
+                <div id="chatbot" style="white-space:pre-line; overflow-y:auto; height:400px; text-align: right; scrollbar-width: none;"></div>
 
-                <div id="textstuff" class="input-textbot" style="color: Black;">
-                    <!-- <form id="stuffyform"> -->
-                        <div class="form-floating" style="color: Black;">
-                            <textarea id='text' class="form-control" placeholder="Say something" name="text"></textarea>
-                            <label for="text"> Ask </label>
-                        </div>
-                        <button onClick="connect()" type='submit' name='submit' class="btn btn-primary"> Submit </button>
-                    <!-- </form> -->
+                <div id="textstuff" class="input-textbot row" style="color: Black; padding: 10px;">
+                    <div class="col-sm-1">
+                        <img src='../frontend/assets/img/stout/icon.png' style='width:100%'>
+                    </div>
+                    <div class="form-floating col-sm-10" style="color: Black;">
+                        <textarea id='text' class="form-control" placeholder="Say something" name="text"></textarea>
+                        <label for="text" style='margin-left: 20px;'> Ask </label>
+                    </div>
+                    <div class="col-sm-1">
+                        <button onClick="connect(); eraseText();" type='submit' name='submit' class="btn btn-primary" id="submit"> Submit </button>
+                    </div>
                 </div>
             </di>
 
@@ -87,27 +90,31 @@
         </div>
     </body>
     <script> 
-        // function (e) {
-        //     if (event.keyCode == 13) {
-        //         connect();
-        //     }
-        // }
+
+        var input = document.getElementById("text");
+
+        // Execute a function when the user presses a key on the keyboard
+        input.addEventListener("keypress", function(event) {
+        // If the user presses the "Enter" key on the keyboard
+        if (event.key === "Enter") {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById("submit").click();
+        }
+        });
 
         function eraseText() {
             document.getElementById("text").value = "";
         }
 
-
-        function scroll(element) {
-            const scrollIntoViewOptions = { behavior: "smooth", block: "center" }; 
-            var bot = document.getElementById(element);
-            bot.scrollIntoView(scrollIntoViewOptions);
-            // objDiv.scrollTop = objDiv.scrollHeight;
+        function scrollToBottom() {
+            let scroll = document.getElementById('chatbot');
+            scroll.scrollTop = scroll.scrollHeight;
         }
     
         function connect() {
             var x = document.getElementById("text").value;
-            eraseText();
 
             const element = document.getElementById("chatbot");
             const prompt = document.createElement("div");
@@ -115,13 +122,20 @@
             promptText = document.createTextNode(x);
             prompt.appendChild(promptText);
             element.appendChild(prompt);
+
+            const fake = document.createElement("div");
+            fake.style.cssText = `border-radius: 25px;background: #73AD21; padding: 20px; margin-right: auto; text-align: left; max-width: 70%;`;
+            var elem = document.createElement("img");
+            elem.src = '../frontend/assets/img/fnaf.jpg';
+            fake.appendChild(elem);
+
             let url = 'http://192.168.64.11:8081/chatbot-api?message=\"' + x + '\"';
             let xhr = new XMLHttpRequest() ;
             xhr.addEventListener ('readystatechange' , function() {
                 if(xhr.readyState == 4)
                 {
                     const para = document.createElement("div");
-                    para.style.cssText = `border-radius: 25px;background: #73AD21; padding: 20px; margin-right: auto; text-align: left; max-width: 70%;`
+                    para.style.cssText = `border-radius: 25px;background: #73AD21; padding: 20px; margin-right: auto; text-align: left; max-width: 70%;`;
                     y = xhr.responseText.slice(1, -1).replaceAll("*", "").split("\\n");
                     let yLen = y.length;
                     for (let i = 0; i < yLen; i++) {
@@ -134,12 +148,13 @@
                         }        
                     }
                     element.appendChild(para);
+                    scrollToBottom();
                 }
             }) ;
             xhr.open('get',url, true);
             xhr.send();
 
-            scroll("chatbot");
+            scrollToBottom();
         }
     </script>
 </html>

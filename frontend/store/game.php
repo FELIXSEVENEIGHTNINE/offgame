@@ -19,14 +19,14 @@
     <body>
         
         <div class="row">
-            <div class="col-2">
+            <div class="col-sm-2">
                 <a href="../">
                     <div class="homepage transition-short inactive-link" id="main" onmouseover="linkHover()" onmouseout="linkHoverOff()">
                         <img src="../assets/img/game_logo_2.png" id="link-image"> 
                     </div>
                 </a>
 
-                <a href="./">
+                <a href="">
                     <div class="button-link transition active-link">
                         <p>Store</p>
                     </div>
@@ -38,7 +38,7 @@
                     </div>
                 </a>
 
-                <a href="../store/">
+                <a href="../profile/">
                     <div class="button-link transition inactive-link">
                         <p>Profile</p>
                     </div>
@@ -50,26 +50,28 @@
                     </div>
                 </a>
 
-                <a href="../recommendation/">
+                <a href="../../chatbot/">
                     <div class="button-link transition inactive-link">
-                        <p>Recommendation</p>
+                        <p>Chatbot</p>
                     </div>
                 </a>
             </div>
 
-            <div class="col-10" style="background-color: #454955; color: White; padding: 40px;">
+            <div class="col-sm-10" style="background-color: #454955; color: White; padding: 40px;">
+                <a href="../store/"><button class="btn btn-secondary">Back</button></a><br><br>
                 <div class="row">
                     <?php
                         include_once("../assets/php/getGameInfo.php");
                     ?>
+                    
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col">
                         <hr>
                         <h2>Other Games Like This:</h2>
                         this is where we recommend the games
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>

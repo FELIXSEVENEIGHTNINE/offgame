@@ -13,7 +13,7 @@
     <body>
         
         <div class="row">
-            <div class="col-2">
+            <div class="col-sm-2">
                 <a href="..">
                     <div class="homepage transition-short inactive-link" id="main" onmouseover="linkHover()" onmouseout="linkHoverOff()">
                         <img src="../assets/img/game_logo_2.png" id="link-image"> 
@@ -57,7 +57,7 @@
                 </a>
             </div>
 
-            <div class="col-10" style="background-color: #454955; color: White; padding:40px;">
+            <div class="col-sm-10" style="background-color: #454955; color: White; padding:40px;">
                 <h1>Communities</h1> <hr>
                 <?php
                     include("../assets/php/getCommunities.php");

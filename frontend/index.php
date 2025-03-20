@@ -56,13 +56,13 @@
                 <header>
                     <section class="not-opposite">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-9">
                                 <h1 class="main-header">We sell games...</h1>
                                 <p class="main-text">
                                     OFFGame offers a lot of games for new and experienced players. Ranging from story-rich games to your average first person shooter, OFFGame has the right game for everyone.
                                 </p>
                             </div>
-                            <div class="col">
+                            <div class="col-3">
                                 <!-- <img src="../../assets/icons/selling.png" id="img-sell"> -->
                             </div>
                         </div>
@@ -97,10 +97,10 @@
 
                     <section class="opposite">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-3">
                                 <!-- <img src="../../assets/icons/shopping-online.png" id="img-sell-opp"> -->
                             </div>
-                            <div class="col">
+                            <div class="col-9">
                                 <h1 class="main-header-opposite">...and we sell YOUR games!</h1>
                                 <p class="main-text-opposite">
                                     OFFGame offers potential to fresh and experienced indie devs who are looking to sell their games in a platform.
@@ -136,13 +136,13 @@
 
                     <section class="not-opposite">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-9">
                                 <h1 class="main-header">Keep us a secret...</h1>
                                 <p class="main-text">
                                     OFFGame is a simple game retailer from people, for the people. We believe our business should be conducted like a friend group.
                                 </p>
                             </div>
-                            <div class="col">
+                            <div class="col-3">
                                 <img src="" id="img-sell-opp">
                             </div>
                         </div>
@@ -171,10 +171,10 @@
                     </section>
                     <section class="opposite">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-3">
                                 <img src="" id="img-sell-opp">
                             </div>
-                            <div class="col">
+                            <div class="col-9">
                                 <h1 class="main-header-opposite">...and we'll keep yours.</h1>
                                 <p class="main-text-opposite">
                                     OFFGame Hides the identities of developers, making the games anonymous. You'd still get a profile but it won't show up your name.
@@ -217,7 +217,6 @@
 
         </div>
         <div id="footer">
-            hi
         </div>
 
         <!-- <div style="border: 1px solid White; width: 100px; height: 100px; position: sticky; bottom: 0; left: 0;"></div> -->

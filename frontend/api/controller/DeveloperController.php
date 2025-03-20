@@ -14,6 +14,9 @@
         $result = mysqli_query($conn, "SELECT * FROM developers WHERE user_id=$userid");
         $row = $result->fetch_assoc();
 
+        if(empty($row['developer_id'])) {
+            return 0;
+        }
         return $row['developer_id'];
         
     }

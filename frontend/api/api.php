@@ -80,6 +80,12 @@
         return getUserDetailById($type, $id);
     }
 
+    function UserAuthKey($id) {
+        include_once('controller/UserController.php');
+
+        return getUserAuthKey($id);
+    }
+
     function AdminAuth($number, $password) {
         include_once('controller/AdminController.php');
 
@@ -126,6 +132,20 @@
 
             return $func; 
         }
+    }
+
+    function UserFollow($type, $id) {
+        include_once('controller/UserController.php');
+
+        if($type == "Game") {
+            $func = getUserFollowGame($id);
+            if ($func == "Error") {
+                echo "Error.";
+                return;
+            }
+            return $func;
+        }
+
     }
 
     function GameId($method,$id) {

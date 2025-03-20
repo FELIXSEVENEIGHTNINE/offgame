@@ -70,9 +70,10 @@
             <div class="col-10" style="background-color: #454955; color: White; padding: 40px;">
                 <div class="row">
                     <div class="col">
-                        <a href="user.php?id=<?php echo $userid ?>"><button>Back</button></a>
+                        <a href="user.php?id=<?php echo $userid ?>"><button class='btn btn-primary'>Back</button></a>
+                        <br><br><br>
                         <!-- <h1>Stuff</h1><hr> -->
-                        <h2> Your Options </h2><hr>
+                        <h2> Options </h2><hr>
                         <a href="game/editname.php?id=<?php echo $userid ?>"><button class="btn btn-primary">Edit Game Name</button></a>
                         <a href="game/editdesc.php?id=<?php echo $userid ?>"><button class="btn btn-primary">Edit Game Description</button></a>
                         <a href="game/editfilter.php?id=<?php echo $userid ?>"><button class="btn btn-primary">Edit Game Filters</button></a>

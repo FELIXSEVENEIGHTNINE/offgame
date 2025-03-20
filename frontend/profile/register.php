@@ -33,7 +33,7 @@
     <body>
         
         <div class="row">
-            <div class="col-2">
+            <div class="col-sm-2">
                 <a href="..">
                     <div class="homepage transition-short inactive-link" id="main" onmouseover="linkHover()" onmouseout="linkHoverOff()">
                         <img src="../assets/img/game_logo_2.png" id="link-image"> 
@@ -77,14 +77,23 @@
                 </a>
             </div>
 
-            <div class="col-10" style="background-color: #454955; color: White; padding: 40px;">
+            <div class="col-sm-10" style="background-color: #454955; color: White; padding: 40px;">
                 <h1> Register </h1> <hr>
-                <div style="border: 1px solid; width: 50%; height: 50%; padding: 40px;">
+                <div style="border: 0px solid; width: 100%; height: 50%;">
                     <form method='POST'>
-                        Email: <input type='text' name='email'> <br>
-                        Username: <input type='text' name='username'> <br>
-                        Password: <input type='password' name='password'> <br>
-                        <button type='submit' name='submit'> Submit </button>
+                        <div>
+                            <label for="email" class="form-label">Email </label>
+                            <input type='text' name='email' id="email" class="form-control">
+                        </div>
+                        <div>
+                            <label for="username" class="form-label">Username </label>
+                            <input type='text' name='username' id="username" class="form-control">
+                        </div>
+                        <div>
+                            <label for="password" class="form-label">Password </label>
+                            <input type='password' name='password' id="password" class="form-control">
+                        </div>
+                        <button type='submit' name='submit' name='submit' class='btn btn-primary'> Submit </button>
                     </form>
                     <p>Already have an account? <a href="login.php">Log in</a> instead!</p>
                 </div>

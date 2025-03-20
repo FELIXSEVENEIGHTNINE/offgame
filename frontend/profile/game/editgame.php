@@ -80,7 +80,7 @@
             </div>
 
             <div class="col-10 main" style="padding:40px;">
-                <a href="user.php?id=<?php $userid ?>"><button class="btn btn-primary">Back </button></a>
+                <a href="user.php?id=<?php echo $userid ?>"><button class="btn btn-primary">Back </button></a>
                 <form method="POST">
                     <div class="mb-3 mt-3">
                         <label for="un" class="form-label">Change Username:</label>
