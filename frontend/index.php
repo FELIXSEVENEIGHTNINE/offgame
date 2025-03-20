@@ -46,7 +46,13 @@
                     </div>
                 </a>
 
-                <a href="../chatbot/">
+                <a href="recommendation/">
+                    <div class="button-link transition inactive-link">
+                        <p>Recommendation</p>
+                    </div>
+                </a>
+
+                <a href="chatbot/">
                     <div class="button-link transition inactive-link">
                         <p>Chatbot</p>
                     </div>
@@ -199,20 +205,7 @@
                         </div>
                     </section>
                 </header>
-                <main>
-                    <div class="row">
-                        <div class="col">
-                            
-
-                            
-                            
-                            
-
                 
-                        </div>
-                    </div>
-
-                </main>
             </div>
 
         </div>

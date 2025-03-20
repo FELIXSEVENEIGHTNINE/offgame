@@ -1,6 +1,8 @@
 <?php
     include_once('../api/api.php');
     //echo session_status();
+
+    $id = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
@@ -18,10 +20,10 @@
     </head>
     <body>
         <div class="container">
-            <a href="../">Go back home </a>
+            <a href="../">Home</a> &gt <a href="../admin/dashboard.php?id=<?php echo $id ?>">Admin</a> &gt <a href="">Edit Admin Profile</a>
         </div>
         <div class="container">
-            <h2> Add Blog</h2><hr>
+            <h2> Edit Admin Profile </h2><hr>
 
             
 

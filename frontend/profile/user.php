@@ -31,6 +31,8 @@
 
     $followed = UserFollow("Game", $userid);
 
+    $credit = UserCredit("GET", $userid);
+
 
 ?>
 
@@ -81,13 +83,13 @@
                     </div>
                 </a>
 
-                <!-- <a href="../recommendation/">
+                <a href="../recommendation/">
                     <div class="button-link transition inactive-link">
                         <p>Recommendation</p>
                     </div>
-                </a> -->
+                </a>
 
-                <a href="../../chatbot/">
+                <a href="../chatbot/">
                     <div class="button-link transition inactive-link">
                         <p>Chatbot</p>
                     </div>
@@ -137,6 +139,7 @@
                     </div>
                     <div class="col-sm-4">
                         <h1>Options</h1> <hr>
+                        <h3>$<?php echo $credit?></h3>
                         <h3>Profile</h3><hr>
                         <a href="edit.php?id=<?php echo $userid ?>#mainedit"><button class="btn btn-primary">Edit Profile</button></a>
                         <a href="logout.php"><button class="btn btn-primary">Log out</button></a>

@@ -29,17 +29,11 @@
         </div>
         <div class="container">
             <h2> Hello <?php echo $info['admin_username']?></h2>
-
+            <br><br>
             <h3>Functions</h3><hr>
-            <a href="editprofile.php"><button class="btn btn-primary">Edit Profile</button></a>
+            <a href="editprofile.php?id=<?php echo $id?>"><button class="btn btn-primary">Edit Admin Profile</button></a>
             <a href="addblog.php"><button class="btn btn-primary">Add Blog</button></a>
-            <a href="editgame.php"><button class="btn btn-primary">Edit Game</button></a>
-            <a href="deletegame.php"><button class="btn btn-primary">Delete Game</button></a>
 
-
-            <h3>List of Advertised Games</h3><hr>
-
-            <h3>List of Games</h3><hr>
 
 
         </div>

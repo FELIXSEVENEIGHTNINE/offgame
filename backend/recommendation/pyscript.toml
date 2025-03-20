@@ -1,0 +1,2 @@
+packages = ["arrr", "numberwang" ]
+interpreter = "0.23.4"

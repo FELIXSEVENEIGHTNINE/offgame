@@ -294,5 +294,12 @@
         return getAchievements($id);
     }
 
+    function UserCredit($method, $id) {
+        include_once('controller/CreditController.php');
+
+        $cred = getUserCredit($id);
+        if ($cred == NULL) $cred = 0;
+        return $cred;
+    }
 
 ?>

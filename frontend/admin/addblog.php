@@ -28,7 +28,7 @@
     </head>
     <body>
         <div class="container">
-            <a href="../">Home</a> &gt <a href="../admin/">Admin</a> &gt <a href="">Add Blog</a>
+            <<a href="../">Home</a> &gt <a href="../admin/dashboard.php?id=<?php echo $id ?>">Admin</a> &gt <a href="">Add Blog</a>
         </div>
         <div class="container">
             <div class="row">

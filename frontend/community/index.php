@@ -44,13 +44,13 @@
                     </div>
                 </a>
 
-                <!-- <a href="../recommendation/">
+                <a href="../recommendation/">
                     <div class="button-link transition inactive-link">
                         <p>Recommendation</p>
                     </div>
-                </a> -->
+                </a>
 
-                <a href="../../chatbot/">
+                <a href="../chatbot/">
                     <div class="button-link transition inactive-link">
                         <p>Chatbot</p>
                     </div>
