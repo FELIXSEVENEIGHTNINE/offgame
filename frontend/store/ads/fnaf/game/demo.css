@@ -1,0 +1,231 @@
+* {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+@font-face {
+  font-family: fnafFont;
+  src: url(font/fnaf-font.ttf);
+}
+
+#battery_image {
+  position: absolute;
+  left: 9%; 
+  top: 87%;
+  
+}
+
+#camera_name {
+  position: absolute;
+  font-family: fnafFont;
+  color: white;
+  font-size: 50px;
+  left: 65%;
+  top: 27.5%;
+}
+
+#battery_usage {
+  position: absolute;
+  font-family: fnafFont;
+  color: white;
+  font-size: 50px;
+  top: 80%;
+  left: 1%; 
+}
+
+#battery_text {
+  position: absolute;
+  font-family: fnafFont;
+  color: white;
+  font-size: 50px;
+  top: 75%;
+  left: 1%; 
+}
+
+#time {
+  position: absolute;
+  font-family: fnafFont;
+  color: white;
+  font-size: 60px;
+  top: -5%;
+  left: 93%;
+  text-align: right;
+  text-align-last: right;
+}
+
+#screen {
+  height: auto;
+  width: 100%;
+  position: absolute;
+}
+
+#announce {
+  position: absolute;
+  font-family: fnafFont;
+  color: white;
+  font-size: 70px;
+  top: 43%;
+  left: 44%;
+  text-align: center;
+  text-align-last: right;
+  visibility: hidden;
+}
+
+#retry {
+  position: absolute;
+  font-family: fnafFont;
+  size: 20%;
+  top: 58%;
+  left: 45%;
+  font-size: 50px;
+  border-radius: 10px;
+  visibility: hidden;
+  
+}
+
+#camera_screen {
+  height: auto;
+  width: 100%;
+  position: absolute;
+  visibility: hidden;
+}
+
+#door_left {
+  position: absolute;
+  left: 4%;
+  width: 14%;
+}
+
+#door_left_buttons {
+  position: absolute;
+  left: -0.5%; 
+  top: 40%;
+  /* height: auto;
+  width: 4%; */
+}
+
+#door_right {
+  position: absolute;
+  left: 80%;
+  width: 16%;
+}
+
+#door_right_buttons {
+  position: absolute;
+  left: 93.5%; 
+  top: 40%;
+  float:right;
+  /* height: auto;
+  width: 4%; */
+}
+
+#camera_button {
+  position: absolute;
+  left: 20%;
+  top: 80%;
+}
+
+#camera_map {
+  position: absolute;
+  left: 65%;
+  top: 35%;
+  /* left: 64%; */
+  /* top: 30%; */
+  /* width: 30%; */
+}
+
+#camera_animation {
+  position: absolute;
+  left: 5%;
+  /* width: 100%; */
+}
+
+#cameras {
+  visibility: hidden;
+}
+
+#cam1a {
+  position: absolute;
+  left: 73%;
+  top: 40%;
+  outline: white solid 1px;
+}
+
+#cam1b {
+  position: absolute;
+  left: 70%;
+  top: 46%;
+  outline: white solid 1px;
+}
+
+#cam1c {
+  position: absolute;
+  left: 69%;
+  top: 58%;
+  outline: white solid 1px;
+}
+
+#cam2a {
+  position: absolute;
+  left: 72.7%;
+  top: 70.5%;
+  outline: white solid 1px;
+}
+
+#cam2b {
+  position: absolute;
+  left: 72.7%;
+  top: 80%;
+  outline: white solid 1px;
+}
+
+#cam3 {
+  position: absolute;
+  left: 68%;
+  top: 73%;
+  outline: white solid 1px;
+}
+
+#cam4a {
+  position: absolute;
+  left: 80%;
+  top: 70.5%;
+  outline: white solid 1px;
+}
+
+#cam4b {
+  position: absolute;
+  left: 80%;
+  top: 80%;
+  outline: white solid 1px;
+}
+
+#cam5 {
+  position: absolute;
+  left: 65%;
+  top: 50%;
+  outline: white solid 1px;
+}
+
+#cam6 {
+  position: absolute;
+  left: 88%;
+  top: 69%;
+  outline: white dashed 1px;
+}
+
+#cam7 {
+  position: absolute;
+  left: 88%;
+  top: 50%;
+  outline: white solid 1px;
+}
+
+body {
+    background-color: black;
+}
+
+button {
+    position: absolute;
+}
